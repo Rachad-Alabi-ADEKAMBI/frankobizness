@@ -16,60 +16,108 @@ $grey: #F8F8F8;
     justify-content: space-between
 }
 
+
+h2{
+    font-size: 1.9em;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+    text-align: center;
+}
+
+button{
+    cursor: pointer;
+}
+
 .header{
 
 }
 
 .search{
     @include flex();
+    height: 110px;
+    width: 100%;
+    text-align: center;
+    margin: 40px auto;
+    background-color: $red;
 
-    &__item{
-        width: 80%;
-        text-align: center;
+    &__content{
+        width: 100%;
+        margin: auto;
         @include flex();
+        &__item{
+            text-align: center;
+            @include flex();
+            margin: auto;
 
-        p{
-            color: $black;
-            span{
-                color: $red;
-            }
-        }
-
-        label{
-            margin: 5px;
-            input{
-                height: 40px;
-                width: 150px;
-                background-color: $white;
+            p{
+                color: $white;
+                span{
+                    font-weight: 300;
+                }
             }
 
-            button{
-                background-color: $white;
+            label{
+                margin: 5px;
+                input{
+                    height: 40px;
+                    width: 150px;
+                    background-color: $white;
+                }
+
+                button{
+                    background-color: $black;
+                    color: $white;
+                    font-weight: bold;
+                    height:45px ;
+                    border-radius: 2px;
+                    border: 2px solid $white;
+                    width: 130px;
+                }
+
+                button:hover{
+                    background-color: $red;
+                    color: $white;
+
+                }
             }
         }
     }
 
 }
 
+
 section{
     @include flex(column);
+    margin: 15px auto;
 
     h2{
         margin: 10px auto;
+
+        span{
+            font-size: 0.7em;
+            font-weight: normal;
+        }
     }
 
     .items{
         @include flex();
+        width: 85%;
+        margin: auto;
+        height: 10px auto;
 
         .item{
             height: auto;
-            width: 300px;
+            width: 350px;
             background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             box-shadow: 0px 10px 12px #00000029;
 
             &__top{
-                height: 250px;
+                height: 230px;
+                width: 100%;
                 position: relative;
                 img{
                     width: 100%;
@@ -81,10 +129,14 @@ section{
                     position: absolute;
                     top: 15px;
                     left: 15px;
-                    height: 80px;
+                    height: 25px;
                     width: auto;
                     background-color: $red;
                     color: $white;
+                    padding-top: 5px;
+                    font-weight: bold;
+                    width: 100px;
+                    text-align: center;
                 }
 
                 .bar{
@@ -101,7 +153,9 @@ section{
 
             &__bottom{
                 display: block;
+                height: 250px;
                 text-align: center;
+                width: 100%;
 
                 h3{
                     color: $red;
@@ -109,24 +163,167 @@ section{
 
                 .description{
                     margin: 30px auto;
-                    color: $grey;
-                    width: 80%;
+                    color: black;
+                    width: 90%;
                 }
 
-                ul{
-                    width: 80%;
-                    margin: auto;
+               .list{
+                @include flex();
+                width: 90%;
+                margin: auto;
 
-                    li{
-                        color: $black;
+                &__item{
+                    margin: 5px;
+
+                    span{
+                        font-weight: bold;
                     }
                 }
+               }
 
                 .price{
-                    font-weight: 2em;
+                    font-size: 1.4em;
+                    font-weight: 700;
                     color: $red;
                 }
             }
         }
     }
+
+    .cards{
+        width: 80%;
+        @include flex();
+        margin: auto;
+
+        .card{
+            display: block;
+            text-align: center;
+            flex: 1;
+
+           i{
+            font-size: 2em;
+            color: $red;
+           }
+
+            p{
+                font-weight: 500;
+                font-size: 1.1em;
+            }
+
+            .text{
+                color: rgb(32, 29, 29);
+                font-weight: normal;
+                font-size: 1em;
+            }
+
+
+        }
+    }
+
+}
+
+.grey{
+    background-color: $grey;
+    height: 400px;
+    margin: 60px auto;
+    padding-top: 20px;
+}
+
+.black{
+    height: 200px;
+    background-color: $black;
+    width: 100%;
+    display: table;
+    margin: 20px auto 60px auto;
+
+
+    &__content{
+        width: 60%;
+        background-color: $black;
+        display: table-cell;
+        margin: 80px auto;
+        vertical-align: middle;
+        @include flex();
+
+        p{
+            color: $white;
+        }
+
+        button{
+           background-color: $black;
+           border: 2px solid $white;
+           color: $white;
+           width: 200px;
+           font-weight: bold;
+           font-size: 1.2em;
+
+        }
+
+        button:hover{
+            background-color: $white;
+            color: $black;
+
+        }
+
+
+
+    }
+
+}
+
+.testimonies{
+    background-color: $grey;
+    height: 350px;
+    display: block;
+
+    &__content{
+        width: 80%;
+        text-align: center;
+    }
+}
+
+.footer{
+    height: auto;
+    background-color: $black;
+    display: block;
+    margin: 80px auto 0 auto;
+    padding-top: 10px;
+
+    &__top{
+        @include flex();
+        width: 95%;
+        margin: auto;
+
+
+        .box{
+            flex: 1;
+            display: block;
+            text-align: left;
+            color: $white;
+
+            h4{
+                color: $red;
+
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+
+            p{
+                margin: 2px auto auto 0;
+                text-align: left;
+            }
+        }
+    }
+
+    hr{
+        margin: 40px auto;
+    }
+
+    &__bottom{
+        color: $white;
+        @include flex();
+        width: 95%;
+        margin: auto;
+    }
+
 }
