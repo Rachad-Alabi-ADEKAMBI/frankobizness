@@ -14,6 +14,22 @@ try{
             case "searchCar":
                 searchCar();
             break;
+
+            case "cars":
+                getCars();
+            break;
+
+            case "lastAdded":
+            getLastAdded();
+            break;
+
+            case "lastSaleAdded":
+                getLastSaleAdded();
+                break;
+
+                case "lastRentAdded":
+                    getLastRentAdded();
+                    break;
 /*
                     case "ingredientsByReceipt":
                         if (!empty($url[1])){

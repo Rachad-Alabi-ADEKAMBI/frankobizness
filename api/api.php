@@ -3,7 +3,7 @@
 //local
 $pdo = new PDO('mysql:dbname=sezam;host=localhost', 'root', '');
 function getConnexion(){
-    return new PDO("mysql:host=localhost; dbname=sezam; charset=UTF8", "root", "");
+    return new PDO("mysql:host=localhost; dbname=frankobizness; charset=UTF8", "root", "");
 }
 
 
@@ -59,6 +59,52 @@ function str_random($length){
         sendJSON($datas);
         return $datas;
     }
+
+    function getCars(){
+        $pdo = getConnexion();
+        $req = $pdo->prepare("SELECT *  FROM cars ORDER BY id DESC");
+        $req->execute(array());
+        $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
+        return $datas;
+    }
+
+    function getLastAdded(){
+    $pdo = getConnexion();
+    $req = $pdo->prepare("SELECT *  FROM cars ORDER BY id DESC
+    LIMIT 3");
+    $req->execute();
+    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->closeCursor();
+    sendJSON($datas);
+    return $datas;
+}
+
+function getLastSaleAdded(){
+    $pdo = getConnexion();
+    $req = $pdo->prepare("SELECT *  FROM cars
+    WHERE category = ? ORDER BY id DESC
+    LIMIT 3");
+    $req->execute(array('sale'));
+    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->closeCursor();
+    sendJSON($datas);
+    return $datas;
+}
+
+function getLastRentAdded(){
+    $pdo = getConnexion();
+    $req = $pdo->prepare("SELECT *  FROM cars
+    WHERE category = ? ORDER BY id DESC
+    LIMIT 3");
+    $req->execute(array('rent'));
+    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->closeCursor();
+    sendJSON($datas);
+    return $datas;
+}
+
 
 
 

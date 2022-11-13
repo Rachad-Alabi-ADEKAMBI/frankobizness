@@ -282,6 +282,44 @@ section{
     }
 }
 
+.car{
+    width: 100%;
+    margin: auto;
+    background-color: red;
+
+    &__top{
+        @include flex();
+        width: 90%;
+        margin: auto;
+        background-color:  $red;
+
+        .left{
+            background-color: $red;
+
+            h2{
+                color: $red;
+            }
+
+            p{
+
+            }
+        }
+    }
+
+    img{
+        width: 550px;
+        height: 200px;
+        margin: auto;
+    }
+
+    &__infos{
+        width: 90%;
+        margin: auto;
+    }
+
+
+}
+
 .footer{
     height: auto;
     background-color: $black;

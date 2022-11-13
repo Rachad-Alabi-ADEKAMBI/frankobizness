@@ -238,6 +238,35 @@ section .cards .card .text {
   text-align: center;
 }
 
+.car {
+  width: 100%;
+  margin: auto;
+  background-color: red;
+}
+.car__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  background-color: #bc111d;
+}
+.car__top .left {
+  background-color: #bc111d;
+}
+.car__top .left h2 {
+  color: #bc111d;
+}
+.car img {
+  width: 550px;
+  height: 200px;
+  margin: auto;
+}
+.car__infos {
+  width: 90%;
+  margin: auto;
+}
+
 .footer {
   height: auto;
   background-color: black;
