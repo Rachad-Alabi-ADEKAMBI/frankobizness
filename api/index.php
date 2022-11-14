@@ -30,6 +30,10 @@ try{
                 case "lastRentAdded":
                     getLastRentAdded();
                     break;
+
+                    case "lastSold":
+                        getLastSold();
+                        break;
 /*
                     case "ingredientsByReceipt":
                         if (!empty($url[1])){

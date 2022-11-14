@@ -24,10 +24,10 @@
             <div class="car__top">
                 <h1>Volskzasd</h1>
 
-                <div class="left">
+                <div class="right">
                     <h2>
                         4 000 000 F CFA
-                    </h2> <br>
+                    </h2>
                     <p>
                         Annee: <span>2010</span>
                         Etat: <span>9/10</span>
@@ -35,7 +35,9 @@
                 </div>
             </div>
 
-            <img src="public/img/agustin-segura-eDXRq-2LfNM-unsplash.jpg" alt="" class="card__image">
+            <div class="image">
+                  <img src="public/img/agustin-segura-eDXRq-2LfNM-unsplash.jpg" alt="" class="card__image">
+            </div>
 
             <div class="car__infos">
                 <div class="left">
@@ -50,7 +52,8 @@
 
                     <div class="details">
                         <ul>
-                            <li></li>
+                            <li> detail 1</li>
+                            <li>detail 2</li>
                         </ul>
                     </div>
                 </div>
@@ -58,16 +61,35 @@
                 <div class="right">
                     <div class="card">
                         <div class="card__top">
-                            <img src="" alt="">
+                            <img src="public/img/joey-banks-YApiWyp0lqo-unsplash.jpg" alt="">
                             <div class="card__top__infos">
                                 <i></i> 66645784 <br>
                                 <i></i> agent@frankobizness.com
                             </div>
                         </div>
 
-                        <form action="" class="card__bottom">
+                        <form action="api/api.php?action='contactForCar" method='POST'
+                                 class="card__bottom">
                             <label for="">
-                                <input type="text">
+                                <input type="text" placeholder="Votre nom" name='name'>
+                            </label>
+
+                            <label for="">
+                                <input type="email" placeholder="Votre email" name='email'>
+                            </label>
+
+                            <label for="">
+                                <input type="number" placeholder="Votre contact" name='contact'>
+                            </label>
+
+                            <label for="">
+                                <input type="text" placeholder="Je suis interesse par ce vehicule" name='message'>
+                            </label>
+
+                            <label>
+                            <button type='submit'>
+                                Contacter
+                            </button>
                             </label>
                         </form>
                     </div>
@@ -166,7 +188,7 @@
             },
             methods: {
                 getCar() {
-                    axios.get(' http://127.0.0.1/frankobizness/api/car/1').then(response =>
+                    axios.get(' http://127.0.0.1/frankobizness/api/car/lastAdded').then(response =>
                         this.details = response.data)
                 }
             }

@@ -50,20 +50,21 @@ button {
 }
 .search__content__item label {
   margin: 5px;
+  color: white;
 }
 .search__content__item label input {
-  height: 40px;
-  width: 150px;
+  height: 30px;
+  width: 120px;
   background-color: white;
 }
 .search__content__item label button {
   background-color: black;
   color: white;
   font-weight: bold;
-  height: 45px;
+  height: 37px;
   border-radius: 2px;
   border: 2px solid white;
-  width: 130px;
+  width: 120px;
 }
 .search__content__item label button:hover {
   background-color: #bc111d;
@@ -93,6 +94,7 @@ section .items {
 }
 section .items .item {
   height: auto;
+  margin: auto;
   width: 350px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -241,7 +243,7 @@ section .cards .card .text {
 .car {
   width: 100%;
   margin: auto;
-  background-color: red;
+  display: block;
 }
 .car__top {
   display: flex;
@@ -249,22 +251,76 @@ section .cards .card .text {
   justify-content: space-between;
   width: 90%;
   margin: auto;
-  background-color: #bc111d;
+  text-align: center;
 }
-.car__top .left {
-  background-color: #bc111d;
+.car__top .right {
+  display: block;
 }
-.car__top .left h2 {
+.car__top .right h2 {
   color: #bc111d;
+  margin: auto auto 0 auto;
 }
-.car img {
-  width: 550px;
-  height: 200px;
+.car__top .right p {
+  margin: 0 auto;
+}
+.car__top .right p span {
+  color: black;
+  font-size: 1em;
+}
+.car .image {
+  text-align: center;
+  margin: 20px auto;
+}
+.car .image img {
+  width: 700px;
+  height: 350px;
   margin: auto;
 }
 .car__infos {
   width: 90%;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.car__infos .left {
+  width: 60%;
+}
+.car__infos .left .details ul li {
+  text-align: left;
+}
+.car__infos .right {
+  width: 30%;
+}
+.car__infos .right .card {
+  display: block;
+}
+.car__infos .right .card__top img {
+  width: 100px;
+  height: 100px;
+}
+.car__infos .right .card__bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+.car__infos .right .card__bottom label {
+  margin: 10px auto auto 0;
+}
+.car__infos .right .card__bottom label input {
+  height: 30px;
+}
+.car__infos .right .card__bottom label button {
+  width: 120px;
+  height: 35px;
+  font-weight: bold;
+  background-color: #bc111d;
+  color: white;
+}
+.car__infos .right .card__bottom label button:hover {
+  background-color: white;
+  color: #bc111d;
 }
 
 .footer {
@@ -306,4 +362,77 @@ section .cards .card .text {
   justify-content: space-between;
   width: 95%;
   margin: auto;
+}
+
+/*responsive for 1024px*/
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  section .items {
+    width: 98%;
+  }
+  section .items .item {
+    width: 320px;
+  }
+  section .cards {
+    width: 98%;
+  }
+}
+/*responsive for 767x*/
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  section .items {
+    width: 98%;
+  }
+  section .items .item {
+    width: 230px;
+  }
+  section .items .item__top img {
+    height: 80%;
+  }
+  section .items .item__bottom {
+    height: 250px;
+  }
+  section .items .item__bottom h3 {
+    margin: -20px auto;
+  }
+  section .cards {
+    width: 98%;
+  }
+}
+/*responsive for 350px*/
+@media screen and (min-width: 350px) and (max-width: 766px) {
+  h2 {
+    font-size: 1.5em;
+  }
+  .search {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .search__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .search__content__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  section .items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+  }
+  section .items .item {
+    width: 340px;
+    margin: auto;
+  }
+  section .items .item__top {
+    margin: auto;
+  }
+  section .items .item__top img {
+    margin: auto;
+  }
 }/*# sourceMappingURL=main.css.map */

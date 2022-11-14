@@ -86,7 +86,7 @@ function getLastSaleAdded(){
     $req = $pdo->prepare("SELECT *  FROM cars
     WHERE category = ? ORDER BY id DESC
     LIMIT 3");
-    $req->execute(array('sale'));
+    $req->execute(array('A vendre'));
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
     sendJSON($datas);
@@ -98,7 +98,19 @@ function getLastRentAdded(){
     $req = $pdo->prepare("SELECT *  FROM cars
     WHERE category = ? ORDER BY id DESC
     LIMIT 3");
-    $req->execute(array('rent'));
+    $req->execute(array('A louer'));
+    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->closeCursor();
+    sendJSON($datas);
+    return $datas;
+}
+
+function getLastSold(){
+    $pdo = getConnexion();
+    $req = $pdo->prepare("SELECT *  FROM cars
+    WHERE category = 'A vendre' AND status = 'Non disponible'
+    ORDER BY id DESC LIMIT 3");
+    $req->execute();
     $datas = $req->fetchAll(PDO::FETCH_ASSOC);
     $req->closeCursor();
     sendJSON($datas);

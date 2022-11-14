@@ -7,12 +7,6 @@
     <title>Frankobizness - Accueil</title>
     <link rel="stylesheet" href="public/scss/main.css">
     <script src="https://kit.fontawesome.com/b14771b76e.js" crossorigin="anonymous"></script>
-    <script src='https://unpkg.com/vue@3'></script>
-<script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 
 </head>
 <body>
