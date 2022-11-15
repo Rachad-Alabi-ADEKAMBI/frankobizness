@@ -9,6 +9,9 @@ $black: black;
 $red: #bc111d;
 $white: white;
 $grey: #F8F8F8;
+$green: green;
+$purple: purple;
+
 
 @mixin flex($flex-drection: row){
     display: flex;
@@ -29,8 +32,34 @@ li{
 
 button{
     cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: $white;
+    height: 35px;
+    width: 110px;
 }
 
+button:hover{
+    background-color: $black;
+    color: $white;
+}
+
+.green{
+    background-color: $green;
+}
+
+.purple{
+    background-color: $purple;
+    width: 100px;
+    color: $white;
+}
+
+.red{
+    background-color: $red;
+        width: 100px;
+        color: $white;
+}
 .header{
 
 }
@@ -107,7 +136,6 @@ section{
         @include flex();
         width: 85%;
         margin: auto;
-        height: 10px auto;
 
         .item{
             height: auto;
@@ -287,7 +315,19 @@ section{
 .car{
     width: 100%;
     margin: auto;
-    display: block;
+   @include flex(column);
+
+    .back{
+        margin: 10px auto;
+        text-align: left;
+        a{
+            float: left;
+        }
+    }
+
+    hr{
+        width: 100%;
+    }
 
     &__top{
         @include flex();
@@ -332,10 +372,44 @@ section{
             width: 60%;
 
             .details{
-                ul{
-                    li{
-                        text-align: left;
+               p{
+                span{
+                    color: $red;
+                    font-weight: bold;
+                }
+               }
+            }
+
+            .images{
+                @include flex();
+                width: fit-content;
+
+                a{
+                    cursor: pointer;
+                    margin: 10px;
+
+                    img{
+                        width: 250px;
+                        height: auto;
                     }
+                }
+
+                .image{
+                    flex: 1;
+                    display: block;
+                    margin: 10px;
+
+                    img{
+                        width: 250px;
+                        height: 170px;
+                    }
+
+                    h4{
+                        text-align: center;
+                        color: $red;
+                    }
+
+
                 }
             }
         }
@@ -346,7 +420,14 @@ section{
             .card{
                 display: block;
 
+
                 &__top{
+                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                    background: #FFFFFF 0% 0% no-repeat padding-box;
+                    box-shadow: 0px 10px 12px #00000029;
+                    padding: 10px;
+                    margin: auto;
+
                     img{
                         width: 100px;
                         height: 100px;
@@ -359,13 +440,32 @@ section{
 
                 &__bottom{
                     @include flex(column);
+                    padding: 10px;
+                    margin: auto;
                     text-align: left;
+                    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                    background: #FFFFFF 0% 0% no-repeat padding-box;
+                    box-shadow: 0px 10px 12px #00000029;
+
+
+
                     label{
                         margin: 10px auto auto 0;
+                        width: 100%;
 
                         input{
                             height: 30px;
+                            width: 90%;
+                        }
 
+                        .message{
+                            height: 250px;
+                            width: 90%;
+                        }
+
+                        textarea{
+                            width: 90%;
+                            text-align: left;
                         }
 
                         button{
@@ -389,6 +489,112 @@ section{
         }
     }
 
+
+}
+
+.table{
+	width: 850px;
+	border-collapse: collapse;
+	margin: auto;
+	font-family: sans-serif;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  border:1px solid #ddd;
+  text-align: center;
+  font-size:16px;
+}
+
+.table th{
+	background-color: $red;
+	color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+}
+
+.options{
+    text-align: center;
+    margin: 30px auto;
+
+
+
+    &__list{
+       li{
+         button{
+            height: 30px;
+            width: 120px;
+            background-color: $green;
+            border: 1px solid $green;
+            color: $white;
+        }
+
+        button:hover{
+            background-color: $black;
+            }
+       }
+    }
+}
+
+form{
+    width: 550px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 12px #00000029;
+    padding: 10px;
+    margin: 30px auto;
+
+    h2{
+        color: $black
+    }
+
+    .close{
+        text-align: center;
+        margin: auto;
+    }
+
+    .details{
+        @include flex();
+        margin: 10px auto;
+
+
+        label{
+            flex: 1;
+            margin: 5px;
+            input{
+                width: 120px;
+            }
+
+            select{
+                width: 120px;
+            }
+        }
+
+        textarea{
+            width: 485px;
+            height: 110px;
+        }
+    }
+
+    p{
+        text-align: center;
+    }
+
+    .choices{
+        width: 50%;
+        margin: auto;
+        @include flex();
+
+        button{
+            margin: 5px;
+        }
+    }
+
+    button{
+        background-color: $red;
+
+    }
 
 }
 
@@ -418,9 +624,31 @@ section{
                 font-weight: bold;
             }
 
+
+
             p{
                 margin: 2px auto auto 0;
                 text-align: left;
+            }
+
+            form{
+                width: 200px;
+                @include flex();
+                margin: auto 5px 10px 0;
+
+                label{
+                    margin: 2px;
+                    input{
+                        height: 30px;
+                        width: 140px;
+                    }
+
+                    button{
+                        background-color: $black;
+                        height: 35px;
+                        color: $white;
+                    }
+                }
             }
         }
     }
@@ -448,13 +676,23 @@ section{
                 width: 320px;
 
                 &__top{
+                    margin: auto;
+                }
 
+                &__bottom{
+                    height: 270px;
                 }
             }
         }
 
         .cards{
             width: 98%;
+        }
+    }
+
+    .car{
+        &__infos{
+            @include flex(column);
         }
     }
 }
@@ -483,7 +721,7 @@ section{
                 }
 
                 &__bottom{
-                    height: 250px;
+                    height: 260px;
 
                     h3{
                         margin: -20px auto;
@@ -494,6 +732,49 @@ section{
 
         .cards{
             width: 98%;
+        }
+    }
+
+    .car{
+        &__top{
+            width: 95%;
+        }
+
+        &__infos{
+            @include flex(column);
+            width: 95%;
+
+            .left{
+                width: 90%;
+                margin: auto 0;
+                .images{
+                    a{
+                        img{
+                            width: 220px;
+
+                        }
+                    }
+
+                    .image{
+                        img{
+                            width: 220px;
+                            height: 160px;
+                        }
+                    }
+                }
+            }
+
+            .right{
+                width: 50%;
+            }
+        }
+
+
+    }
+
+    .footer{
+        &__top{
+            @include flex(column);
         }
     }
 }
@@ -538,6 +819,108 @@ section{
                 }
             }
 
+        }
+    }
+
+    .car{
+        &__top{
+            @include flex(column);
+
+            .right{
+
+            }
+        }
+
+        .image{
+            img{
+                width: 340px;
+                height: 270px;
+            }
+        }
+
+        &__infos{
+            @include flex(column);
+
+            .left{
+                width: 95%;
+                margin: auto 0;
+
+                .images{
+                    @include flex(column);
+                    margin: auto;
+
+                    img{
+                        width: 330px;
+                    }
+                }
+
+
+
+            }
+
+            .right{
+                width: 95%;
+                margin: auto 0;
+
+                .card{
+                    width: 330px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    form{
+        width: 340px;
+
+        .details{
+            @include flex(column);
+        }
+
+        textarea{
+            width: 340px;
+            margin: auto;
+        }
+    }
+
+    .table{
+        width: 300px;
+        display: none;
+    }
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+
+
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+
+
+    .footer{
+        &__top{
+            @include flex(column);
         }
     }
 }

@@ -20,6 +20,9 @@
         </header>
 
         <div class="car" >
+            <div class="back">
+                <a href="index.php">Retour</a>
+            </div>
             <hr>
             <div class="car__top">
                 <h1>Volskzasd</h1>
@@ -28,10 +31,7 @@
                     <h2>
                         4 000 000 F CFA
                     </h2>
-                    <p>
-                        Annee: <span>2010</span>
-                        Etat: <span>9/10</span>
-                    </p>
+
                 </div>
             </div>
 
@@ -48,13 +48,41 @@
 
                     <h3>
                         Details:
-                    </h3> <br>
+                    </h3>
 
                     <div class="details">
-                        <ul>
-                            <li> detail 1</li>
-                            <li>detail 2</li>
-                        </ul>
+                        <p>
+                            Couleur: <span>Rouge</span><br>
+                            Annee: <span>2010</span> <br>
+                            Etat: <span>4/5</span>
+                        </p>
+                    </div>
+
+                    <div class="images">
+                        <a href=""><img src="public/img//blake-meyer-CRNbHjNaljo-unsplash.jpg" alt=""></a>
+                        <a href=""><img src="public/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt=""></a>
+                        <a href=""><img src="public/img/joey-banks-YApiWyp0lqo-unsplash.jpg" alt=""></a>
+                    </div>
+
+                    <h3>
+                        Vehicules similaires:
+                    </h3>
+
+                    <div class="images">
+                        <div class="image">
+                            <img src="public/img/sven-d-a4S6KUuLeoM-unsplash.jpg" alt="">
+                            <h4>Vehicule 1</h4>
+                        </div>
+
+                        <div class="image">
+                            <img src="public/img/joey-banks-YApiWyp0lqo-unsplash.jpg" alt="">
+                            <h4>Vehicule 2</h4>
+                        </div>
+
+                        <div class="image">
+                            <img src="public/img/sahil-patel-7KFGoBwMCyI-unsplash.jpg" alt="">
+                            <h4>Vehicule 3</h4>
+                        </div>
                     </div>
                 </div>
 
@@ -83,7 +111,9 @@
                             </label>
 
                             <label for="">
-                                <input type="text" placeholder="Je suis interesse par ce vehicule" name='message'>
+                                <textarea class=''
+                                placeholder="Je suis interesse par ce vehicule" name='message'>
+                                </textarea>
                             </label>
 
                             <label>
