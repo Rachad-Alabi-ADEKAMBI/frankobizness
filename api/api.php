@@ -60,10 +60,55 @@ function str_random($length){
         return $datas;
     }
 
+
+    function getCar($id){
+        $pdo = getConnexion();
+        $req = $pdo->prepare("SELECT *  FROM cars
+        WHERE id = ?");
+        $req->execute(array($id));
+        $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
+        return $datas;
+    }
+
     function getCars(){
         $pdo = getConnexion();
         $req = $pdo->prepare("SELECT *  FROM cars ORDER BY id DESC");
         $req->execute(array());
+        $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
+        return $datas;
+    }
+
+    function getCarsToSell(){
+        $pdo = getConnexion();
+        $req = $pdo->prepare("SELECT *  FROM cars
+        WHERE category = ? ORDER BY id DESC");
+        $req->execute(array('A vendre'));
+        $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
+        return $datas;
+    }
+
+    function getCarsToRent(){
+        $pdo = getConnexion();
+        $req = $pdo->prepare("SELECT *  FROM cars
+        WHERE category = ? ORDER BY id DESC");
+        $req->execute(array('A louer'));
+        $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
+        return $datas;
+    }
+
+    function getAllCars(){
+        $pdo = getConnexion();
+        $req = $pdo->prepare("SELECT *  FROM cars
+        WHERE status = ? ORDER BY id DESC");
+        $req->execute(array('Disponible'));
         $datas = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
         sendJSON($datas);
@@ -117,7 +162,16 @@ function getLastSold(){
     return $datas;
 }
 
-
+function getMostRated(){
+    $pdo = getConnexion();
+    $req = $pdo->prepare("SELECT *  FROM cars
+    ORDER BY rate DESC LIMIT 3");
+    $req->execute();
+    $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->closeCursor();
+    sendJSON($datas);
+    return $datas;
+}
 
 
 
@@ -265,6 +319,7 @@ function login(){
 
                <script>
                 alert('Veuillez verifier vos identifiants');
+                window.location.replace('../login.php')
                </script>
             <?php }
 

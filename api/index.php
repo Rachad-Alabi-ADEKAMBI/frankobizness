@@ -15,8 +15,24 @@ try{
                 searchCar();
             break;
 
+            case "mostRated":
+                getMostRated();
+            break;
+
             case "cars":
                 getCars();
+            break;
+
+            case "carsToSell":
+                getCarsToSell();
+            break;
+
+            case "carsToRent":
+                getCarsToRent();
+            break;
+
+            case "allCars":
+                getAllCars();
             break;
 
             case "lastAdded":
@@ -34,16 +50,16 @@ try{
                     case "lastSold":
                         getLastSold();
                         break;
-/*
-                    case "ingredientsByReceipt":
+
+
+                    case "car":
                         if (!empty($url[1])){
-                            getIngredientsByReceipt($url[1]);
+                            getCar($url[1]);
                         } else{
                             throw new Exception ("Vous n'avez pas renseigné l'id de la demande");
                         }
 
                         break;
-                        */
 
 
 

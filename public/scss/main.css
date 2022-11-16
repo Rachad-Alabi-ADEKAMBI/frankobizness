@@ -45,29 +45,43 @@ button:hover {
   color: white;
 }
 
+.close {
+  margin: 10px auto;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #bc111d;
+}
+
 .search {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   height: auto;
   width: 100%;
   text-align: center;
-  padding-top: 120px;
-  margin: 120px auto;
+  margin: 40px auto;
   background-color: #bc111d;
 }
 .search__content {
   width: 100%;
-  margin: auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .search__content__item {
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: auto;
 }
 .search__content__item p {
@@ -89,7 +103,7 @@ button:hover {
   background-color: black;
   color: white;
   font-weight: bold;
-  height: 37px;
+  height: 32pxs;
   border-radius: 2px;
   border: 2px solid white;
   width: 120px;
@@ -103,7 +117,11 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 15px auto;
+}
+section .close:hover {
+  color: #bc111d;
 }
 section h2 {
   margin: 10px auto;
@@ -116,12 +134,14 @@ section .items {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 85%;
+  flex-wrap: wrap;
+  width: 90%;
   margin: auto;
+  height: auto;
 }
 section .items .item {
   height: auto;
-  margin: auto;
+  margin: 10px;
   width: 350px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -166,10 +186,12 @@ section .items .item__bottom {
   width: 100%;
 }
 section .items .item__bottom h3 {
-  color: #bc111d;
+  color: black;
+  font-size: 1.3em;
+  margin: 10px auto;
 }
 section .items .item__bottom .description {
-  margin: 30px auto;
+  margin: 15px auto;
   color: black;
   width: 90%;
 }
@@ -177,7 +199,8 @@ section .items .item__bottom .list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: auto;
 }
 section .items .item__bottom .list__item {
@@ -187,15 +210,30 @@ section .items .item__bottom .list__item span {
   font-weight: bold;
 }
 section .items .item__bottom .price {
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 700;
   color: #bc111d;
+}
+section .items .item__bottom .btn {
+  width: 100%;
+  height: 40px;
+  display: table;
+  margin: 10px auto;
+}
+section .items .item__bottom .btn button {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #bc111d;
+}
+section .items .item__bottom .btn button:hover {
+  background-color: black;
 }
 section .cards {
   width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: auto;
 }
 section .cards .card {
@@ -240,6 +278,7 @@ section .cards .card .text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .black__content p {
   color: white;
@@ -273,13 +312,7 @@ section .cards .card .text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.car .back {
-  margin: 10px auto;
-  text-align: left;
-}
-.car .back a {
-  float: left;
+  flex-wrap: wrap;
 }
 .car hr {
   width: 100%;
@@ -288,9 +321,13 @@ section .cards .card .text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 90%;
   margin: auto;
   text-align: center;
+}
+.car__top h1 {
+  color: #bc111d;
 }
 .car__top .right {
   display: block;
@@ -321,6 +358,7 @@ section .cards .card .text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .car__infos .left {
   width: 60%;
@@ -333,6 +371,7 @@ section .cards .card .text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -343,20 +382,24 @@ section .cards .card .text {
 }
 .car__infos .left .images a img {
   width: 250px;
-  height: auto;
-}
-.car__infos .left .images .image {
-  flex: 1;
-  display: block;
-  margin: 10px;
-}
-.car__infos .left .images .image img {
-  width: 250px;
+  margin: 10x;
   height: 170px;
 }
-.car__infos .left .images .image h4 {
+.car__infos .left .images img {
+  width: 250px;
+  height: 170px;
+  margin: 10px;
+}
+.car__infos .left .images h4 {
   text-align: center;
   color: #bc111d;
+  margin: 10px auto;
+}
+.car__infos .left .images button {
+  background-color: #bc111d;
+}
+.car__infos .left .images button:hover {
+  background-color: black;
 }
 .car__infos .right {
   width: 30%;
@@ -375,10 +418,17 @@ section .cards .card .text {
   width: 100px;
   height: 100px;
 }
+.car__infos .right .card__top__infos {
+  font-weight: bold;
+}
+.car__infos .right .card__top__infos i {
+  color: red;
+}
 .car__infos .right .card__bottom {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 10px;
   margin: auto;
   text-align: left;
@@ -392,14 +442,14 @@ section .cards .card .text {
 }
 .car__infos .right .card__bottom label input {
   height: 30px;
-  width: 90%;
+  width: 250px;
 }
 .car__infos .right .card__bottom label .message {
-  height: 250px;
-  width: 90%;
+  height: 120px;
+  width: 250px;
 }
 .car__infos .right .card__bottom label textarea {
-  width: 90%;
+  width: 250px;
   text-align: left;
 }
 .car__infos .right .card__bottom label button {
@@ -407,6 +457,10 @@ section .cards .card .text {
   height: 35px;
   font-weight: bold;
   background-color: #bc111d;
+  color: white;
+}
+.car__infos .right .card__bottom label button:hover {
+  background-color: black;
   color: white;
 }
 .car__infos .right .card__bottom label button:hover {
@@ -470,6 +524,7 @@ form .details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 10px auto;
 }
 form .details label {
@@ -495,6 +550,7 @@ form .choices {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 form .choices button {
   margin: 5px;
@@ -514,6 +570,7 @@ form button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 95%;
   margin: auto;
 }
@@ -537,6 +594,7 @@ form button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: auto 5px 10px 0;
 }
 .footer__top .box form label {
@@ -559,6 +617,7 @@ form button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 95%;
   margin: auto;
 }
@@ -584,6 +643,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 /*responsive for 767x*/
@@ -613,6 +673,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 95%;
   }
   .car__infos .left {
@@ -633,6 +694,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 /*responsive for 350px*/
@@ -645,21 +707,25 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .search__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .search__content__item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   section .items {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 90%;
     margin: auto;
   }
@@ -677,6 +743,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .car .image img {
     width: 340px;
@@ -686,6 +753,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .car__infos .left {
     width: 95%;
@@ -695,6 +763,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin: auto;
   }
   .car__infos .left .images img {
@@ -715,6 +784,7 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   form textarea {
     width: 340px;
@@ -754,5 +824,6 @@ form button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }/*# sourceMappingURL=main.css.map */
