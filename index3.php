@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frankobizness - Accueil</title>
+    <link rel="stylesheet" href="public/scss/main.css">
+    <script src="https://kit.fontawesome.com/b14771b76e.js" crossorigin="anonymous"></script>
 
-    <?php include 'meta.php'; ?>
 </head>
-
 <body>
     <div class="main">
-        <?php include 'header.php'; ?>
+        <header class='header'>
 
-        <?php include 'meta.php'; ?>
+        </header>
 
-        <?php include 'search.php'; ?>
+        <div class="search">
+            <div class="search__content">
+            <div class="search__content__item">
+                <p>
+                    <span>
+                    Chercher un vehicule
+                    </span> <br>
+                    Faites une recherche
+                </p>
+            </div>
+
+            <div class="search__content__item">
+                <label for="">
+                    Marque <br>
+                    <input type="text">
+                </label>
+
+                <label for="">
+                    Prix min: <br>
+                    <input type="text">
+                </label>
+
+                <label for="">Prix max: <br>
+                <input type="text">
+                </label>
+
+                <label for="">
+                    <br>
+                    <button>
+                        Chercher
+                    </button>
+                </label>
+            </div>
+            </div>
+        </div>
 
         <section>
             <h2>
@@ -529,7 +566,7 @@
             </div>
         </section>
 
-        <?php include 'footer.php'; ?>
+
 
     </div>
 </body>

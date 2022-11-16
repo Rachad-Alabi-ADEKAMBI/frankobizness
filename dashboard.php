@@ -1,34 +1,39 @@
+<?php  session_start();
+
+if(!isset($_SESSION['user'])){
+    header("Location: login.php");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="public/scss/main.css">
+    <?php include 'meta.php'; ?>
+
+    <title>Frankobizness - Tableau de bord</title>
 
 </head>
 <body>
-    <header class="header">
+    <?php include 'header.php'; ?>
 
-    </header>
-
-    <main class="main">
+    <main class="main" id='app'>
         <div class="options">
             <p>
-                Bonjour mr X, content de vous revoir
+                Bonjour mr <span><?= $_SESSION['user']['username']?></span>, content de vous revoir
             </p>
 
             <ul class="options__list">
                 <li>
-                    <button class='green'>
+                    <button class='green' @click='displayAdd()' v-if='showBtn'>
                     Nouveau
                     </button>
                 </li>
             </ul>
         </div>
 
-        <table class="table">
+        <table class="table" v-if='showCars'>
             <thead>
                 <th>Id</th>
                 <th>Nom</th>
@@ -39,17 +44,17 @@
 
             <tbody>
 
-                <tr>
+                <tr v-for='car in cars' :key='car.id'>
                     <td data-label="Id">
-                    1
+                        {{ car.id }}
                     </td>
 
                     <td data-label="Nom">
-                    vehicule 1
+                    {{ car.name }}
                     </td>
 
                     <td data-label="Prix">
-                        Prix
+                        {{ format(car.price) }}
                     </td>
 
                     <td>
@@ -66,7 +71,7 @@
             </tbody>
         </table>
 
-        <form action="">
+        <form action="" v-if='displayEdit'>
             <div class="close">
                 Fermer
             </div>
@@ -113,7 +118,7 @@
         </form>
 
 
-        <form action="">
+        <form action="" v-if='displayDelete'>
             <div class="close">
                 Fermer
             </div>
@@ -137,8 +142,8 @@
             </div>
         </form>
 
-        <form action="">
-            <div class="close">
+        <form action="" v-if='showAdd'>
+            <div class="close" @click='closeAdd()'>
                 Fermer
             </div>
             <h2>
@@ -210,5 +215,48 @@
         </form>
 
     </main>
+
+    <?php include 'footer.php'; ?>
+    <script>
+        const {
+            createApp
+        } = Vue
+
+        createApp({
+            data() {
+                return {
+                    cars: [],
+                    showCars : false,
+                    showBtn: false,
+                    showAdd: false,
+                    displayDelete: false,
+                    displayEdit: false
+                }
+            },
+            mounted: function() {
+                this.getCars();
+            },
+            methods: {
+                getCars() {
+                    axios.get('http://127.0.0.1/frankobizness/api/cars').then(response =>
+                        this.cars = response.data)
+                    this.showBtn = true;
+                    this.showCars = true;
+                },
+                displayAdd(){
+                    this.showBtn = false;
+                    this.showCars = false;
+                    this.showAdd = true
+                },
+                format(num){
+                let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
+                return res;
+            },
+                getImgUrl(pic) {
+                return "public/img/" + pic;
+            },
+            }
+        }).mount('#app')
+    </script>
 </body>
 </html>
