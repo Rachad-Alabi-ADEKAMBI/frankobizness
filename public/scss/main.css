@@ -49,10 +49,11 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 110px;
+  height: auto;
   width: 100%;
   text-align: center;
-  margin: 40px auto;
+  padding-top: 120px;
+  margin: 120px auto;
   background-color: #bc111d;
 }
 .search__content {
