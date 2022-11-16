@@ -52,7 +52,8 @@
                         Newsletters
                     </h4>
 
-                    <form action="api/api.php?registerToNewsletters">
+                    <form action="api/api.php?registerToNewsletters"
+                    style='background:black'>
                         <label for="">
                             <input type="email" placeholder="Votre email">
                         </label>
@@ -78,5 +79,3 @@
 
             </div>
         </footer>
-
-        <script type="text/javascript" src="public/js/script.js"></script>

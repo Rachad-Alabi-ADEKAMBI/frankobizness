@@ -137,9 +137,7 @@ function newCar(){
                 $errors['color'] = 'Veuillez definir la mesure';
             }
 
-            if (empty ($_POST['date'])) {
-                $errors['date'] = "Veuillez definir la date";
-            }
+
 
             if (empty ($_POST['brand_name'])) {
                 $errors['brand_name'] = "Veuillez definir la marque";
@@ -153,8 +151,11 @@ function newCar(){
                 $errors['year'] = "Veuillez definir l'annee";
             }
 
+            if (empty ($_POST['rate'])) {
+                $errors['year'] = "Veuillez definir l'etat";
+            }
 
-            $_SESSION['ingredient'] = [
+            $_SESSION['car'] = [
                 "name" => verifyInput($_POST['name']),
                 ];
 
@@ -172,19 +173,34 @@ function newCar(){
                           $name = verifyInput($_POST['name']);
                           $price = verifyInput($_POST['price']);
                           $description = verifyInput($_POST['description']);
-                          $year = verifyInput($_POST['description']);
+                          $year = verifyInput($_POST['year']);
                           $category = verifyInput($_POST['category']);
                           $color = verifyInput($_POST['color']);
                           $brand_name = verifyInput($_POST['brand_name']);
-                          $status = 'onsale';
+                          $rate = verifyInput($_POST['rate']);
+                          $status = 'Disponible';
 
                            //On insere dans la table cars
                     $sql = $pdo->prepare('INSERT INTO cars SET  date_of_insertion = NOW(),
                          name = ?, price = ?, description = ?, year = ?, category = ?, color = ?,
-                         brand_name = ?, status = ?');
+                         brand_name = ?, status = ?, rate = ?');
 
                     $sql->execute(array($name, $price, $description, $year, $category,
-                $color, $brand_name, $status ));
+                $color, $brand_name, $status, $rate ));
+
+                //on insere l'image
+                $car_id = $pdo->lastInsertId();
+                $pic1 = time() . '_' .$_FILES['pic1'] ['name'];
+
+                $target = '../public/img/' .$pic1;
+
+                if( move_uploaded_file($_FILES['pic1']['tmp_name'], $target)){
+
+                    $req = $pdo -> prepare ("UPDATE cars SET
+                    pic1 = ? WHERE id = ? ");
+
+                   $req -> execute([$pic1, $car_id]);
+                }
                ?>
                     <script>
                         alert('Nouveau vehicule ajoute avec succes');
@@ -271,6 +287,10 @@ function login(){
 
 if($action == 'login'){
     login();
+}
+
+if($action == 'newCar'){
+    newCar();
 }
 
     function sendJSON($infos)

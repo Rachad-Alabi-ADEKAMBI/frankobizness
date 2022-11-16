@@ -142,52 +142,66 @@ if(!isset($_SESSION['user'])){
             </div>
         </form>
 
-        <form action="" v-if='showAdd'>
+        <form action="api/api.php?action=newCar" v-if='showAdd'
+        enctype="multipart/form-data"  method='POST'>
+
             <div class="close" @click='closeAdd()'>
                 Fermer
             </div>
+
             <h2>
                 Nouvel ajout
             </h2>
 
             <div class="details">
                 <label for="">Nom: <br>
-                   <input type="text">
+                   <input type="text" name='name' required>
                 </label>
 
+
+                <label for="">Marque: <br>
+                   <select name="brand_name" id="" required>
+                        <option value="">Veuillez selectionner</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Honda">Honda</option>
+                   </select>
+                </label>
+
+
                 <label for="">Prix: <br>
-                    <input type="number">
+                    <input type="number" name='price' required>
                 </label>
             </div>
 
             <div class="details">
                 <label for="">Annee: <br>
-                   <input type="text">
+                   <input type="text" name='year' required>
                 </label>
 
                 <label for="">Etat: <br>
-                    <select name="" id="">
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
+                    <select name="rate" id="" required>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </label>
 
                 <label for="">
-                    Annee: <br>
-                    <input type="number">
+                    Couleur: <br>
+                    <input type="text" name='color' required>
                 </label>
             </div>
 
             <div class="details">
-                <label for="">
-                <input type="text" class='message' name='description'>
+                <label for="">Description: <br>
+                    <textarea name="description"
+                     required id=""></textarea>
                 </label>
             </div>
 
             <div class="details">
                 <label for="">Image 1: <br>
-                    <input type="file" name='pic1' required>
+                    <input type="file" name='pic1' >
                 </label>
 
                 <label for="">Image 2: <br>
@@ -197,18 +211,23 @@ if(!isset($_SESSION['user'])){
                 <label for="">Image 3: <br>
                     <input type="file" name='pic3'>
                 </label>
+
+                <label for="">Image 4: <br>
+                    <input type="file" name='pic4'>
+                </label>
             </div>
 
             <div class="details">
                 <label for="">Action: <br>
-                    <select name="" id="">
+                    <select name="category" id="" required>
+                        <option value="">Veuillez selectionner</option>
                         <option value="A vendre">A vendre</option>
                         <option value="A louer"> A louer</option>
                     </select>
                 </label>
             </div>
 
-            <button class='green'>
+            <button type='submit' class='green'>
                 Ajouter
             </button>
 
@@ -228,13 +247,13 @@ if(!isset($_SESSION['user'])){
                     cars: [],
                     showCars : false,
                     showBtn: false,
-                    showAdd: false,
+                    showAdd: true,
                     displayDelete: false,
                     displayEdit: false
                 }
             },
             mounted: function() {
-                this.getCars();
+              //  this.getCars();
             },
             methods: {
                 getCars() {
@@ -247,6 +266,11 @@ if(!isset($_SESSION['user'])){
                     this.showBtn = false;
                     this.showCars = false;
                     this.showAdd = true
+                },
+                closeAdd(){
+                    this.showBtn = true;
+                    this.showCars = true;
+                    this.showAdd = false;
                 },
                 format(num){
                 let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
