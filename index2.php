@@ -272,40 +272,40 @@
 
             <div class="items">
                 <!--
-            <div class="item" v-for='item in elements' :key='item.id'>
-                        <div class="item__top">
-                        <img :src='getImgUrl(item.pic1)'>
-                            <div class="info">{{ item.category }}</div>
-                            <div class="bar">
-                                <p> {{ item.status }} </p>
-                            </div>
-                        </div>
+                                <div class="item" v-for='item in elements' :key='item.id'>
+                                            <div class="item__top">
+                                            <img :src='getImgUrl(item.pic1)'>
+                                                <div class="info">{{ item.category }}</div>
+                                                <div class="bar">
+                                                    <p> {{ item.status }} </p>
+                                                </div>
+                                            </div>
 
-                        <div class="item__bottom">
-                            <h3>
-                                {{ item.name }}
-                            </h3>
+                                            <div class="item__bottom">
+                                                <h3>
+                                                    {{ item.name }}
+                                                </h3>
 
-                            <p class="description">
-                                {{ item.description }}
-                            </p>
+                                                <p class="description">
+                                                    {{ item.description }}
+                                                </p>
 
-                            <div class="list">
-                                <div class="list__item">Annee: <span>{{ item.year }}</span></div>
-                                <div class="list__item">Etat: <span>{{ item.rate }}/10</span></div>
-                                <div class="list__item">Couleur: <span>{{  item.color }}</span></div>
-                            </div>
+                                                <div class="list">
+                                                    <div class="list__item">Annee: <span>{{ item.year }}</span></div>
+                                                    <div class="list__item">Etat: <span>{{ item.rate }}/10</span></div>
+                                                    <div class="list__item">Couleur: <span>{{  item.color }}</span></div>
+                                                </div>
 
-                            <p class="price">
-                                {{ format(item.price) }}
-                            </p>
-                        </div>
+                                                <p class="price">
+                                                    {{ format(item.price) }}
+                                                </p>
+                                            </div>
 
 
-                    </div>
-                </div>
-            </div>
--->
+                                        </div>
+                                    </div>
+                                </div>
+                    -->
         </section>
 
         <?php include 'footer.php'; ?>

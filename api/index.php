@@ -23,6 +23,10 @@ try{
                 getCars();
             break;
 
+            case "search":
+                search();
+            break;
+
             case "carsToSell":
                 getCarsToSell();
             break;

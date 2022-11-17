@@ -16,7 +16,13 @@
                         class="fas fa-home"></i> Accueil</a></li>
                         <li>
                             <a href="cars.php">
-                            Vehicules
+                            Véhicules
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.php#contact">
+                            Contact
                             </a>
                         </li>
 
@@ -31,7 +37,7 @@
                     href="dashboard.php"> <i class="fas fa-columns"></i> Tableau de bord</a></li>
 
 
-            <li><a href="api/api.php?logout.php" class=""><i class="fas fa-sign-out-alt"></i> Deconnexion</a></li>
+            <li><a href="api/api.php?action=logout" class=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
 
             <?php endif;  ?>
         </ul>

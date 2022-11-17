@@ -16,22 +16,19 @@ if(!isset($_SESSION['user'])){
 
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'header.php'; ?> <br><br><br>
 
     <main class="main" id='app'>
-        <div class="options">
-            <p>
-                Bonjour mr <span><?= $_SESSION['user']['username']?></span>, content de vous revoir
-            </p>
+            <div class="center">
+                    <p>
+                        Bonjour mr <span><?= $_SESSION['user']['username']?></span>, content de vous revoir
+                    </p>
 
-            <ul class="options__list">
-                <li>
-                    <button class='green' @click='displayAdd()' v-if='showBtn'>
-                    Nouveau
-                    </button>
-                </li>
-            </ul>
-        </div>
+
+                            <button class='green' @click='displayAdd()' v-if='showCars'>
+                            Nouveau
+                            </button>
+            </div>
 
         <table class="table" v-if='showCars'>
             <thead>
@@ -141,6 +138,7 @@ if(!isset($_SESSION['user'])){
                 </button>
             </div>
         </form>
+        <br>
 
         <form action="api/api.php?action=newCar" v-if='showAdd'
         enctype="multipart/form-data"  method='POST'>
@@ -194,8 +192,8 @@ if(!isset($_SESSION['user'])){
 
             <div class="details">
                 <label for="">Description: <br>
-                    <textarea name="description"
-                     required id=""></textarea>
+                    <input name="description" class='textarea'
+                     required id="">
                 </label>
             </div>
 
@@ -247,13 +245,13 @@ if(!isset($_SESSION['user'])){
                     cars: [],
                     showCars : false,
                     showBtn: false,
-                    showAdd: true,
+                    showAdd: false,
                     displayDelete: false,
                     displayEdit: false
                 }
             },
             mounted: function() {
-              //  this.getCars();
+               this.getCars();
             },
             methods: {
                 getCars() {

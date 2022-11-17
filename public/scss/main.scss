@@ -27,6 +27,15 @@ h2{
     text-align: center;
 }
 
+a{
+    color: $black;
+}
+
+a:hover{
+    color: $red;
+    text-decoration: none;
+}
+
 li{
     list-style: none;
     text-align: center;
@@ -73,16 +82,18 @@ button:hover{
 
 .close:hover{
     color: $red;
-
 }
+
+
 
 .search{
     @include flex();
     height: auto;
     width: 100%;
     text-align: center;
-    margin: 40px auto;
+    margin: 60px auto;
     background-color: $red;
+
 
     &__content{
 
@@ -96,18 +107,29 @@ button:hover{
 
             p{
                 color: $white;
+                font-size: 1.1em;
+                font-weight: 500;
+
+                strong{
+                    font-weight: 700;
+                    color: $white;
+                    font-size: 1.3em;
+                }
                 span{
-                    font-weight: 300;
+                    font-weight: 700;
+                    color: black;
+                    font-size: 1.3em;
                 }
             }
 
             label{
                 margin: 5px;
                 color: $white;
-                input{
-                    height: 30px;
+                select{
+                    height: 34px;
                     width: 120px;
                     background-color: $white;
+                    color: $black;
                 }
 
                 button{
@@ -118,17 +140,52 @@ button:hover{
                     border-radius: 2px;
                     border: 2px solid $white;
                     width: 120px;
+
+                    a{
+                        color: $white;
+                    }
                 }
 
                 button:hover{
                     background-color: $red;
                     color: $white;
 
+                    a{
+                        color: $white;
+                    }
+
                 }
             }
         }
     }
 
+}
+
+.buttons{
+    margin: auto;
+    width: 400px;
+    @include flex();
+
+
+    button{
+        background-color: $red;
+        margin: 10px;
+    }
+
+    button:hover{
+        background-color: black;
+    }
+
+}
+
+.center{
+    width: 80%;
+    margin: 15px auto;
+    text-align: center;
+
+    p{
+        text-align: center;
+    }
 }
 
 
@@ -221,6 +278,7 @@ section{
                 @include flex();
                 flex-wrap: nowrap;
                 margin: auto;
+                width: 95%;
 
                 &__item{
                     margin: 5px;
@@ -294,6 +352,14 @@ section{
     height: 400px;
     margin: 60px auto;
     padding-top: 20px;
+
+    .cards{
+        @include flex();
+
+        .card{
+            flex: 1;
+        }
+    }
 }
 
 .black{
@@ -314,6 +380,8 @@ section{
 
         p{
             color: $white;
+            font-weight: bold;
+            font-size: 1.1em;
         }
 
         button{
@@ -324,11 +392,18 @@ section{
            font-weight: bold;
            font-size: 1.2em;
 
+           a{
+            color: $white;
+           }
+
         }
 
         button:hover{
             background-color: $white;
-            color: $black;
+
+            a{
+                color: $black;
+            }
 
         }
 
@@ -415,21 +490,22 @@ section{
 
             .images{
                 @include flex();
-                width: fit-content;
+                flex-wrap: nowrap;
+                width: 100%;
 
                 a{
                     cursor: pointer;
-                    margin: 10px;
+                    margin: 5px;
 
                     img{
-                        width: 250px;
+                        width: 230px;
                         margin: 10x;
                         height: 170px;
 
                     }
                 }
                     img{
-                        width: 250px;
+                        width: 230px;
                         height: 170px;
                         margin: 10px;
 
@@ -537,6 +613,42 @@ section{
 
 }
 
+.contact{
+    width: 80%;
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+    height: auto;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 12px #00000029;
+
+    label{
+        margin: 10px auto;
+        width: 550px;
+        input{
+            width: 90%;
+            height: 30px;
+        }
+
+        .message{
+            height: 200px;
+        }
+    }
+
+    button{
+        background-color: $red;
+        color: $white;
+        border-color: $red;
+        cursor: pointer;
+        margin: 20px auto;
+    }
+
+
+
+
+}
+
 .table{
 	width: 850px;
 	border-collapse: collapse;
@@ -614,12 +726,14 @@ form{
             select{
                 width: 120px;
             }
+
+            .textarea{
+                width: 485px;
+                height: 110px;
+            }
         }
 
-        textarea{
-            width: 485px;
-            height: 110px;
-        }
+
     }
 
     p{
@@ -642,6 +756,34 @@ form{
     }
 
 }
+
+.carousel{
+    margin: 40px auto;
+    height: 250px;
+    text-align: center;
+    background-color: white;
+    padding-top: 20px;
+
+    .carousel-inner{
+        .item{
+            img{
+                width: 90px;
+                height: 90px;
+                border-radius: 30px;
+                margin: 10px auto;
+            }
+
+            p{
+                margin: 20px auto;
+
+                span{
+                    color: $red
+                }
+            }
+        }
+    }
+}
+
 
 .footer{
     height: auto;
@@ -771,6 +913,11 @@ form{
                     h3{
                         margin: -20px auto;
                     }
+
+                    .list{
+                        flex-wrap: wrap;
+
+                    }
                 }
             }
         }
@@ -817,6 +964,12 @@ form{
 
     }
 
+    .grey{
+        .cards{
+            flex-direction: column;
+        }
+    }
+
     .footer{
         &__top{
             @include flex(column);
@@ -831,6 +984,14 @@ form{
    h2{
     font-size: 1.5em;
    }
+
+   .grey{
+    height: auto;
+
+    .cards{
+        height: auto;
+    }
+   }
     .search{
         height: auto;
         @include flex(column);
@@ -843,7 +1004,7 @@ form{
             }
         }
     }
-
+/*
     section{
         .items{
             @include flex(column);
@@ -851,7 +1012,7 @@ form{
             margin: auto;
 
             .item{
-                width: 340px;
+                width: 330px;
                 margin: auto;
 
 
@@ -860,12 +1021,20 @@ form{
 
                     img{
                         margin: auto;
+                        width: 310px
+                    }
+                }
+
+                &__bottom{
+                    .list{
+                        flex-wrap: wrap;
                     }
                 }
             }
 
         }
     }
+    */
 
     .car{
         &__top{
@@ -878,7 +1047,7 @@ form{
 
         .image{
             img{
-                width: 340px;
+                width: 310px;
                 height: 270px;
             }
         }
@@ -895,7 +1064,7 @@ form{
                     margin: auto;
 
                     img{
-                        width: 330px;
+                        width: 310px;
                     }
                 }
 
@@ -920,11 +1089,28 @@ form{
 
         .details{
             @include flex(column);
+
+            label{
+                .textarea{
+                    width: 320px;
+                    margin: auto;
+                }
+            }
         }
 
-        textarea{
-            width: 340px;
+
+    }
+
+    .contact{
+        width: 95%;
+
+        label{
+            width: 95%;
             margin: auto;
+
+            input{
+                width: 95%;
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 <?php
  session_start();
 //local
-$pdo = new PDO('mysql:dbname=sezam;host=localhost', 'root', '');
+$pdo = new PDO('mysql:dbname=frankobizness;host=localhost', 'root', '');
 function getConnexion(){
     return new PDO("mysql:host=localhost; dbname=frankobizness; charset=UTF8", "root", "");
 }
@@ -10,7 +10,7 @@ function getConnexion(){
 //production
 /*
 function getConnexion(){
-    return new PDO("mysql:host=localhost; dbname=adra7128_sezam; charset=UTF8", "adra7128_adra7128", "g@RT@iOQ0Amn");
+    return new PDO("mysql:host=localhost; dbname=adra7128_frankobizness; charset=UTF8", "adra7128_adra7128", "g@RT@iOQ0Amn");
 }
 
 $pdo = new PDO('mysql:dbname=adra7128_sezam;host=localhost', 'adra7128_adra7128', 'g@RT@iOQ0Amn');
@@ -188,13 +188,13 @@ function newCar(){
             }
 
             if (empty ($_POST['color'])) {
-                $errors['color'] = 'Veuillez definir la mesure';
+                $errors['color'] = 'Veuillez définir la mesure';
             }
 
 
 
             if (empty ($_POST['brand_name'])) {
-                $errors['brand_name'] = "Veuillez definir la marque";
+                $errors['brand_name'] = "Veuillez définir la marque";
             }
 
             if (empty ($_POST['category'])) {
@@ -202,11 +202,11 @@ function newCar(){
             }
 
             if (empty ($_POST['year'])) {
-                $errors['year'] = "Veuillez definir l'annee";
+                $errors['year'] = "Veuillez definir l'année";
             }
 
             if (empty ($_POST['rate'])) {
-                $errors['year'] = "Veuillez definir l'etat";
+                $errors['year'] = "Veuillez definir l'état";
             }
 
             $_SESSION['car'] = [
@@ -245,6 +245,10 @@ function newCar(){
                 //on insere l'image
                 $car_id = $pdo->lastInsertId();
                 $pic1 = time() . '_' .$_FILES['pic1'] ['name'];
+                $pic2 = time() . '_' .$_FILES['pic2'] ['name'];
+                $pic3 = time() . '_' .$_FILES['pic3'] ['name'];
+                $pic4 = time() . '_' .$_FILES['pic4'] ['name'];
+
 
                 $target = '../public/img/' .$pic1;
 
@@ -255,10 +259,34 @@ function newCar(){
 
                    $req -> execute([$pic1, $car_id]);
                 }
+
+                if( move_uploaded_file($_FILES['pic2']['tmp_name'], $target)){
+
+                    $req = $pdo -> prepare ("UPDATE cars SET
+                    pic2 = ? WHERE id = ? ");
+
+                   $req -> execute([$pic2, $car_id]);
+                }
+
+                if( move_uploaded_file($_FILES['pic3']['tmp_name'], $target)){
+
+                    $req = $pdo -> prepare ("UPDATE cars SET
+                    pic3 = ? WHERE id = ? ");
+
+                   $req -> execute([$pic3, $car_id]);
+                }
+
+                if( move_uploaded_file($_FILES['pic4']['tmp_name'], $target)){
+
+                    $req = $pdo -> prepare ("UPDATE cars SET
+                    pic4 = ? WHERE id = ? ");
+
+                   $req -> execute([$pic4, $car_id]);
+                }
                ?>
                     <script>
-                        alert('Nouveau vehicule ajoute avec succes');
-                     //   window.location.replace('../inventory.php');
+                        alert('Nouveau vehicule ajouté avec succes');
+                        window.location.replace('../dashboard.php');
                     </script>
                <?php
     }
@@ -339,6 +367,80 @@ function login(){
     }
 }
 
+function logout(){
+    unset($_SESSION['user']);
+
+    header("Location: ../index.php");
+}
+
+function search(){
+    if(!empty($_POST)){
+        $pdo = getConnexion();
+
+        $errors = array ();
+
+        if(isset($_POST['brand'])){
+            $brand = verifyInput($_POST['brand']);
+        }
+        else{
+            $brand = 'All';
+        }
+
+        if(isset($_POST['order'])){
+            $order = verifyInput($_POST['order']);
+        } else{
+            $order = 'Croissant';
+        }
+
+        if($order = 'Croissant') {
+            if($brand = 'All'){
+                $req = $pdo->prepare('SELECT * FROM cars
+                 ORDER BY price ASC');
+                 $req->execute();
+            } else{
+                $req = $pdo->prepare('SELECT * FROM cars
+                WHERE brand_name = ? ORDER BY price ASC');
+                $req->execute(array($brand));
+            }
+        }
+
+
+            if($order = 'Décroissant') {
+                if($brand = 'All'){
+                    $req = $pdo->prepare('SELECT * FROM cars
+                     ORDER BY price DESC');
+                     $req->execute();
+                } else{
+                    $req = $pdo->prepare('SELECT * FROM cars
+                    WHERE brand_name = ? ORDER BY price DESC');
+                    $req->execute(array($brand));
+                }
+            }
+
+        $datas = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        sendJSON($datas);
+        return $datas;
+
+
+        ?>
+            <script>
+                window.location.replace('../search.php');
+            </script>
+        <?php
+    }
+    else{
+        ?>
+            <script>
+                alert('Veuillez faire des selections');
+            </script>
+        <?php
+    }
+
+    }
+
+
+
 
 if($action == 'login'){
     login();
@@ -346,6 +448,10 @@ if($action == 'login'){
 
 if($action == 'newCar'){
     newCar();
+}
+
+if($action == 'logout'){
+    logout();
 }
 
     function sendJSON($infos)
