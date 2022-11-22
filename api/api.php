@@ -78,7 +78,7 @@ function str_random($length){
         $req->execute(array());
         $datas = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
-        sendJSON($datas);
+      //  sendJSON($datas);
         return $datas;
     }
 
