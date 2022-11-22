@@ -1,312 +1,217 @@
+<?php  session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frankobizness - Accueil</title>
-    <link rel="stylesheet" href="public/scss/main.css">
-    <script src="https://kit.fontawesome.com/b14771b76e.js" crossorigin="anonymous"></script>
-    <script src='https://unpkg.com/vue@3'></script>
-<script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+    <?php include 'meta.php'; ?>
 </head>
+
 <body>
     <div class="main" id='app'>
-        <header class='header'>
+        <?php include 'header.php'; ?> <br>
 
-        </header>
+        <?php include 'search.php'; ?>
 
-        <div class="search">
-            <div class="search__content">
-            <div class="search__content__item">
-                <p>
-                    <span>
-                    Chercher un vehicule
-                    </span> <br>
-                    Faites une recherche
-                </p>
-            </div>
-
-            <div class="search__content__item">
-                <label for="">
-                    Marque <br>
-                    <input type="text">
-                </label>
-
-                <label for="">
-                    Prix min: <br>
-                    <input type="text">
-                </label>
-
-                <label for="">Prix max: <br>
-                <input type="text">
-                </label>
-
-                <label for="">
-                    <br>
-                    <button>
-                        Chercher
-                    </button>
-                </label>
-            </div>
-            </div>
-        </div>
-
-        <section>
-            <h2>
-                Derniers ajouts
-            </h2>
-
-            <div class="items">
-                <div class="item" v-for='detail in details' :key='detail.id'>
-                    <div class="item__top">
-                    <img :src='getImgUrl(detail.pic1)'>
-                        <div class="info">{{ detail.category }}</div>
-                        <div class="bar">
-                            <p> {{ detail.status }}</p>
-                        </div>
-                    </div>
-
-                    <div class="item__bottom">
-                        <h3>
-                            {{ detail.name }}
-                        </h3>
-
-                        <p class="description">
-                            {{ detail.description  }}
-                        </p>
-
-                        <div class="list">
-                            <div class="list__item">Annee: <span>{{ detail.year }}</span></div>
-                            <div class="list__item">Etat: <span>{{ detail.rate }}/10</span></div>
-                            <div class="list__item">Couleur: <span>{{ detail.color }}</span></div>
-                        </div>
-
-                        <p class="price">
-                            {{ format(detail.price) }}F CFA
-                        </p>
-                    </div>
+        <?php include 'car.php'; ?>
 
 
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>
-                Les plus consultees
-            </h2>
-
-            <div class="slider">
-
-            </div>
-        </section>
-
-        <section>
-            <h2>
-                A vendre
-            </h2>
-
-            <div class="items">
-                <div class="item" v-for='item in items' :key='item.id'>
-                    <div class="item__top">
-                    <img :src='getImgUrl(item.pic1)'>
-                        <div class="info">{{ item.category }}</div>
-                        <div class="bar">
-                            <p> {{ item.status }} </p>
-                        </div>
-                    </div>
-
-                    <div class="item__bottom">
-                        <h3>
-                            {{ item.name }}
-                        </h3>
-
-                        <p class="description">
-                            {{ item.description }}
-                        </p>
-
-                        <div class="list">
-                            <div class="list__item">Annee: <span>{{ item.year }}</span></div>
-                            <div class="list__item">Etat: <span>{{ item.rate }}/10</span></div>
-                            <div class="list__item">Couleur: <span>{{  item.color }}</span></div>
-                        </div>
-
-                        <p class="price">
-                            {{ format(item.price) }} F CFA
-                        </p>
-                    </div>
 
 
-                </div>
-            </div>
-        </section>
+                <div class="" v-if='showHome'>
 
-        <section>
-            <h2>
-                A louer
-            </h2>
+            <section>
+                <h2>
+                    Derniers ajouts
+                </h2>
 
-            <div class="items">
-                <div class="item" v-for='item in infos' :key='item.id'>
+                <div class="items">
+                    <div class="item" v-for='detail in details' :key='detail.id'>
                         <div class="item__top">
-                        <img :src='getImgUrl(item.pic1)'>
-                            <div class="info">{{ item.category }}</div>
+                             <img :src='getImgUrl(detail.pic1)'>
+                            <div class="info">{{ detail.category }}</div>
                             <div class="bar">
-                                <p> {{ item.status }} </p>
+                                <p> {{ detail.status }}</p>
                             </div>
                         </div>
 
                         <div class="item__bottom">
                             <h3>
-                                {{ item.name }}
+                                {{ detail.name }}
                             </h3>
 
                             <p class="description">
-                                {{ item.description }}
+                                {{ detail.description  }}
                             </p>
 
                             <div class="list">
-                                <div class="list__item">Annee: <span>{{ item.year }}</span></div>
-                                <div class="list__item">Etat: <span>{{ item.rate }}/10</span></div>
-                                <div class="list__item">Couleur: <span>{{  item.color }}</span></div>
+                                <div class="list__item">Annee: <span>{{ detail.year }}</span></div>
+                                <div class="list__item">Etat: <span>{{ detail.rate }}/5</span></div>
+                                <div class="list__item">Couleur: <span>{{ detail.color }}</span></div>
                             </div>
 
                             <p class="price">
-                                {{ format(item.price) }} F CFA
+                                {{ format(detail.price) }}F CFA
+                            </p>
+
+                            <div class="btn">
+                                <button @click='getCar(detail.id)'>
+                                Voir
+                            </button>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class='grey' v-if='showHome'>
+                <h2>
+                    Frankobusiness <br>
+                    <span>Votre satisfaction importe</span>
+                </h2>
+
+                <div class="cards">
+                        <div class="card">
+                        <i class="fas fa-money-bill"></i>
+
+                            <p>
+                                Prix accessibles
+                            </p>
+
+                            <p class='text'>
+                            Nous vous proposons des prix super abordables
                             </p>
                         </div>
 
+                        <div class="card">
+                        <i class="fas fa-lock"></i>
+                            <p>
+                                Garantie de votre achat
+                            </p>
 
-                    </div>
+                            <p class='text'>
+                                Achetez le coeur tranquuille
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <i class="fas fa-user"></i>
+                            <p>
+                                Demande personnalisée
+                            </p>
+
+                        <p class="text">
+                            Cherhez vous un modele précis ?
+                            Contactez-nous
+                        </p>
+                        </div>
+                </div>
+            </section>
+
+
+
+
+            <div class="black" v-if='showHome'>
+                <div class="black__content">
+                    <p>Trouvez votre vehicule
+                         aujourdh'hui </p>
+                    <button>
+                        <a href="#contact">
+                        Contactez-nous
+                        </a>
+                    </button>
                 </div>
             </div>
-        </section>
 
-        <section class='grey'>
-            <h2>
-                Frankobizness <br>
-                <span>Votre satisfaction importe</span>
-            </h2>
-
-           <div class="cards">
-                    <div class="card">
-                       <i class="fas fa-money-bill"></i>
-
-                        <p>
-                            Prix accessibles
-                        </p>
-
-                        <p class='text'>
-                           Nous vous proposons des prix super abordables
-                           </p>
-                    </div>
-
-                    <div class="card">
-                       <i class="fas fa-lock"></i>
-                        <p>
-                            Garantie de votre achat
-                        </p>
-
-                        <p class='text'>
-                            Achetez le coeur tranquuille
-                        </p>
-                    </div>
-
-                    <div class="card">
-                          <i class="fas fa-user"></i>
-                        <p>
-                            Demande personnalisee
-                        </p>
-
-                       <p class="text">
-                        Cherhcez vous un modele precis ?
-                        Contactez-nous
-                       </p>
-                    </div>
-            </div>
-        </section>
-
-        <div class="black">
-            <div class="black__content">
-                <p>Trouvez votre vehicule aujourdh'hui </p>
-                <button>
-                    Chercher
-                </button>
-            </div>
-        </div>
-
-        <section class="testimonies">
+            <section>
                 <h2>
-                    Temoignages
+                    A louer
                 </h2>
 
-                <div class="testimonies__content">
-                    <div class="testimony">
-                        <img src="" alt="">
-                        <p class="author">
-                            Marius A.
-                        </p>
+                <div class="items">
+                    <div class="item" v-for='item in infos' :key='item.id'>
+                            <div class="item__top">
+                            <img :src='getImgUrl(item.pic1)'>
+                                <div class="info">{{ item.category }}</div>
+                                <div class="bar">
+                                    <p> {{ item.status }} </p>
+                                </div>
+                            </div>
 
-                        <p class="title">
-                            client satisfait
-                        </p>
+                            <div class="item__bottom">
+                                <h3>
+                                    {{ item.name }}
+                                </h3>
 
-                        <p>
-                            Je suis tres satisfait de mon achat, je recommande vivement
-                            Frankobizness
-                        </p>
+                                <p class="description">
+                                    {{ item.description }}
+                                </p>
+
+                                <div class="list">
+                                    <div class="list__item">Annee: <span>{{ item.year }}</span></div>
+                                    <div class="list__item">Etat: <span>{{ item.rate }}/5</span></div>
+                                    <div class="list__item">Couleur: <span>{{  item.color }}</span></div>
+                                </div>
+
+                                <p class="price">
+                                    {{ format(item.price) }} F CFA
+                                </p>
+
+                                <div class="btn">
+                                <button @click='getCar(item.id)'>
+                                Voir
+                            </button>
+                            </div>
+                            </div>
+
+
+                        </div>
                     </div>
-                </div>
-        </section>
+            </section>
 
-        <section>
+
+
+
+            <?php include 'slider.php'; ?>
+
+
+
+            <form action="" id='contact' class="contact">
             <h2>
-                Dernieres ventes
+                Contact
             </h2>
 
-            <div class="items">
-                <!--
-                                <div class="item" v-for='item in elements' :key='item.id'>
-                                            <div class="item__top">
-                                            <img :src='getImgUrl(item.pic1)'>
-                                                <div class="info">{{ item.category }}</div>
-                                                <div class="bar">
-                                                    <p> {{ item.status }} </p>
-                                                </div>
-                                            </div>
+            <label for="">
+                Nom complet: <br>
+                <input type="text">
+            </label> <br>
 
-                                            <div class="item__bottom">
-                                                <h3>
-                                                    {{ item.name }}
-                                                </h3>
+            <label for="">Email: <br>
+                <input type="email">
+            </label> <br>
 
-                                                <p class="description">
-                                                    {{ item.description }}
-                                                </p>
+            <label for="">
+                Contact: <br>
+                <input type="number">
+            </label> <br>
 
-                                                <div class="list">
-                                                    <div class="list__item">Annee: <span>{{ item.year }}</span></div>
-                                                    <div class="list__item">Etat: <span>{{ item.rate }}/10</span></div>
-                                                    <div class="list__item">Couleur: <span>{{  item.color }}</span></div>
-                                                </div>
+            <label for="">
+                Message: <br>
+                <input type="text" class="message">
+            </label> <br>
 
-                                                <p class="price">
-                                                    {{ format(item.price) }}
-                                                </p>
-                                            </div>
+            <button>
+                Envoyer
+            </button>
+            </form>
 
-
-                                        </div>
-                                    </div>
-                                </div>
-                    -->
-        </section>
 
         <?php include 'footer.php'; ?>
 
@@ -323,22 +228,68 @@
                     details: [],
                     items: [],
                     infos: [],
-                    elements: []
+                    elements: [],
+                    showCar: false,
+                    showHome: false,
+                    lines: [],
                 }
             },
             mounted: function() {
-                this.getLastAdded();
+                this.displayHome();
             },
             methods: {
-                getLastAdded() {
-                    axios.get('http://127.0.0.1/frankobizness/api/lastAdded').then(response =>
+                displayHome() {
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/lastAdded').then(response =>
                         this.details = response.data)
-                        axios.get('http://127.0.0.1/frankobizness/api/lastSaleAdded').then(response =>
-                        this.items = response.data)
-                        axios.get('http://127.0.0.1/frankobizness/api/lastRentAdded').then(response =>
+                      /*  axios.get('https://www.frankobizness.luuluilui.fr/api/lastSaleAdded').then(response =>
+                        this.items = response.data)*/
+                        axios.get('https://www.frankobizness.luuluilui.fr/api/lastRentAdded').then(response =>
                         this.infos = response.data)
-                        axios.get('https://127.0.0.1/frankobizness/api/lastSold').then(response =>
-                        this.elements = response.data)
+
+                        this.showToSell = false;
+                        this.showHome = true;
+                        this.showCar = false;
+                        this.showAllCars = false;
+                        this.showToRent = false;
+                        this.showToSell =false
+                },
+                getCar(id){
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/car/' + id).then(response =>
+                        this.lines = response.data);
+                        axios.get('https://www.frankobizness.luuluilui.fr/api/mostRated').then(response =>
+                        this.items = response.data);
+                        this.showHome = false;
+                        this.showCar = true;
+                        this.showAllCars = false;
+                        this.showToRent = false;
+                        this.showToSell =false;
+                },
+                getToSell(){
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/carsToSell').then(response =>
+                        this.details = response.data);
+                        this.showHome = false;
+                        this.showCar = false;
+                        this.showAllCars = false;
+                        this.showToRent = false;
+                        this.showToSell = true;
+                },
+                getToRent(){
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/carsToRent').then(response =>
+                        this.details = response.data);
+                        this.showHome = false;
+                        this.showCar = false;
+                        this.showAllCars = false;
+                        this.showToRent = true;
+                        this.showToSell = false;
+                },
+                getAllCars(){
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/allCars').then(response =>
+                        this.details = response.data);
+                        this.showHome = false;
+                        this.showCar = false;
+                        this.showAllCars = true;
+                        this.showToRent = false;
+                        this.showToSell = false;
                 },
                 format(num){
                 let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
@@ -346,6 +297,9 @@
             },
                 getImgUrl(pic) {
                 return "public/img/" + pic;
+            },
+            getPic(pic){
+                window.location.replace('public/img/'+ pic);
             },
             }
         }).mount('#app')

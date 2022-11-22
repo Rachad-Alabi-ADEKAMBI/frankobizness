@@ -202,7 +202,7 @@
             },
             methods: {
                 displayAllCars() {
-                    axios.get('http://127.0.0.1/frankobizness/api/allCars').then(response =>
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/allCars').then(response =>
                         this.details = response.data)
                         this.showAllCars = true;
                         this.showCar = false;
@@ -210,9 +210,9 @@
                         this.showToSell =false
                 },
                 getCar(id){
-                    axios.get('http://127.0.0.1/frankobizness/api/car/' + id).then(response =>
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/car/' + id).then(response =>
                         this.lines = response.data);
-                        axios.get('http://127.0.0.1/frankobizness/api/mostRated').then(response =>
+                        axios.get('https://www.frankobizness.luuluilui.fr/api/mostRated').then(response =>
                         this.items = response.data);
                         this.showHome = false;
                         this.showCar = true;
@@ -221,7 +221,7 @@
                         this.showToSell =false;
                 },
                 getToSell(){
-                    axios.get('http://127.0.0.1/frankobizness/api/carsToSell').then(response =>
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/carsToSell').then(response =>
                         this.details = response.data);
                         this.showHome = false;
                         this.showCar = false;
@@ -230,7 +230,7 @@
                         this.showToSell = true;
                 },
                 getToRent(){
-                    axios.get('http://127.0.0.1/frankobizness/api/carsToRent').then(response =>
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/carsToRent').then(response =>
                         this.details = response.data);
                         this.showHome = false;
                         this.showCar = false;
@@ -239,7 +239,7 @@
                         this.showToSell = false;
                 },
                 getAllCars(){
-                    axios.get('http://127.0.0.1/frankobizness/api/allCars').then(response =>
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/allCars').then(response =>
                         this.details = response.data);
                         this.showHome = false;
                         this.showCar = false;

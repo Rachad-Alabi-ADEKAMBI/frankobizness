@@ -255,7 +255,7 @@ if(!isset($_SESSION['user'])){
             },
             methods: {
                 getCars() {
-                    axios.get('http://127.0.0.1/frankobizness/api/cars').then(response =>
+                    axios.get('https://www.frankobizness.luuluilui.fr/api/cars').then(response =>
                         this.cars = response.data)
                     this.showBtn = true;
                     this.showCars = true;
