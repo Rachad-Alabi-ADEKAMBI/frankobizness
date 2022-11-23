@@ -343,24 +343,25 @@ function login(){
                 $errors['pass'] = 'Utilisateur/mot de passe incorrect';
             }
 
-            if(!empty($errors)){?>
+            if(!empty($errors)){
+             $_SESSION['login'] = [
+                    "username" =>verifyInput($_POST['username']),
+                    "pass" => verifyInput($_POST['pass'])
+                    ];
+                    ?>
 
                <script>
-                alert('Veuillez verifier vos identifiants');
-                window.location.replace('../login.php')
+                    alert('Veuillez verifier vos identifiants');
+                  window.location.replace('../index.php?action=loginPage')
                </script>
             <?php }
 
             if (empty($errors)){
-
-                session_start();
-
                 $_SESSION['user'] = [
                     "username" =>$user['username'],
                     "role" => $user['admin']
                 ];
-
-                header("Location: ../dashboard.php");
+                header("Location: ../index.php?action=dashboard");
             }
 
             }
@@ -437,9 +438,7 @@ function search(){
         <?php
     }
 
-    }
-
-
+}
 
 
 if($action == 'login'){

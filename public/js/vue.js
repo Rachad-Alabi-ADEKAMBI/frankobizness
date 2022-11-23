@@ -1,4 +1,3 @@
-<script>
 const {
     createApp
 } = Vue
@@ -6,33 +5,40 @@ const {
 createApp({
     data() {
         return {
-            details: [],
-            items: [],
-            infos: [],
-            elements: []
+            cars: [],
+            showCars : false,
+            showBtn: false,
+            showAdd: false,
+            displayDelete: false,
+            displayEdit: false
         }
     },
     mounted: function() {
-        this.getLastAdded();
+       this.getCars();
     },
     methods: {
-        getLastAdded() {
-            axios.get('http://127.0.0.1/frankobizness/api/lastAdded').then(response =>
-                this.details = response.data)
-                axios.get('http://127.0.0.1/frankobizness/api/lastSaleAdded').then(response =>
-                this.items = response.data)
-                axios.get('http://127.0.0.1/frankobizness/api/lastRentAdded').then(response =>
-                this.infos = response.data)
-                axios.get('https://127.0.0.1/frankobizness/api/lastSold').then(response =>
-                this.elements = response.data)
+        getCars() {
+            axios.get('https://www.frankobizness.luuluilui.fr/api/cars').then(response =>
+                this.cars = response.data)
+            this.showBtn = true;
+            this.showCars = true;
+        },
+        displayAdd(){
+            this.showBtn = false;
+            this.showCars = false;
+            this.showAdd = true
+        },
+        closeAdd(){
+            this.showBtn = true;
+            this.showCars = true;
+            this.showAdd = false;
         },
         format(num){
         let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
         return res;
-    },ss
+    },
         getImgUrl(pic) {
         return "public/img/" + pic;
     },
     }
 }).mount('#app')
-</script>

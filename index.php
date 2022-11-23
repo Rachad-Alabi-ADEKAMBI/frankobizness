@@ -3,6 +3,8 @@
 require_once('src/controllers/front/homepage.php');
 require_once('src/controllers/front/car.php');
 require_once('src/controllers/back/addCategory.php');
+require_once('src/controllers/front/loginPage.php');
+require_once('src/controllers/back/dashboard.php');
 
 
 if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -31,6 +33,16 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 		addCategory();
 
 	}
+
+	elseif ($_GET['action'] === 'loginPage') {
+		loginPage();
+	}
+
+	elseif ($_GET['action'] === 'dashboard') {
+		dashboard();
+	}
+
+
 	else {
     	echo "Erreur 404 : la page que vous recherchez n'existe pas.";
 	}
