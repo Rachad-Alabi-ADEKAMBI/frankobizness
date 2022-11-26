@@ -1,8 +1,5 @@
-const {
-    createApp
-} = Vue
 
-createApp({
+const vue = newVue({
     data() {
         return {
             cars: [],
@@ -18,10 +15,13 @@ createApp({
     },
     methods: {
         getCars() {
-            axios.get('https://www.frankobizness.luuluilui.fr/api/cars').then(response =>
-                this.cars = response.data)
+         /*   axios.get('http://127.0.0.1/frankobizness/api/cars').then(response =>
+                this.cars = response.data);
+
             this.showBtn = true;
             this.showCars = true;
+            */
+           alert('ok')
         },
         displayAdd(){
             this.showBtn = false;
@@ -41,4 +41,4 @@ createApp({
         return "public/img/" + pic;
     },
     }
-}).mount('#app')
+}).$mount('#app');

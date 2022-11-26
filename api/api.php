@@ -78,8 +78,8 @@ function str_random($length){
         $req->execute(array());
         $datas = $req->fetchAll(PDO::FETCH_ASSOC);
         $req->closeCursor();
-      //  sendJSON($datas);
-        return $datas;
+        sendJSON($datas);
+      //  return $datas;
     }
 
     function getCarsToSell(){

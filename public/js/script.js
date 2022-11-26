@@ -1,0 +1,3 @@
+function doo(){
+    alert ('ok');
+}

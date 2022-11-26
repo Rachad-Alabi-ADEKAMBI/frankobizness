@@ -7,7 +7,7 @@
             <i class="fas fa-bars"></i>
         </label>
         <label class="logo">
-            <a href="index.php">
+            <a href="jnindex.php">
                 <img src="public/img/logo.jpg" alt="">
             </a>
         </label>
@@ -34,10 +34,10 @@
             <?php else: ?>
 
             <li><a class="<?php echo $current_page == 'dashboard.php' ? 'active':NULL ?>"
-                    href="/index.php?action=dashboard"> <i class="fas fa-columns"></i> Tableau de bord</a></li>
+                    href="././index.php?action=dashboard"> <i class="fas fa-columns"></i> Tableau de bord</a></li>
 
 
-            <li><a href="index.php?action=logout" class=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+            <li><a href="././api/api.php?action=logout" class=""><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
 
             <?php endif;  ?>
         </ul>

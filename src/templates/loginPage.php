@@ -1,20 +1,17 @@
 <?php $title = 'Franko - Connexion'; ?>
 
-<?php
-session_start();
-?>
 
 
 <?php ob_start(); ?>
 
 <div class="login">
-    <form action="/api/api.php?action=login" method='POST'>
+    <form action="././api/api.php?action=login" method='POST'>
         <h2>
             Connexion
         </h2> <br>
         <label for="" class='form'>
             Nom:  <br>
-            <input type="text" name='username' required value<?=$_SESSION['login']['username'] ?>>
+            <input type="text" name='username' required value='<?=$_SESSION['login']['username'] ?>'>
         </label> <br> <br>
 
         <label for="">

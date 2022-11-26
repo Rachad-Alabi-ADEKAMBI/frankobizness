@@ -1,29 +1,19 @@
-<?php  session_start();
-/*
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
-    exit;
-}
-*/
-?>
-
-<?php $title = 'Franko -Tableau de bord'; ?>
-
-<?php ob_start(); ?>
+<?php
+session_start();
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include 'meta.php'; ?>
+ $title = 'Franko -Tableau de bord'; ?>
 
-    <title>Frankobizness - Tableau de bord</title>
+<?php ob_start();
 
-</head>
-<body>
-    <?php include 'header.php'; ?> <br><br><br>
+//include 'checkSession.php'; ?>
 
-    <main class="main" id='app'>
+<br><br><br>
+
+    <main class="main">
+        <button onclick='doo()'>
+    do</button>
+
             <div class="center">
                     <p>
                         Bonjour mr <span><?= $_SESSION['user']['username']?></span>, content de vous revoir
