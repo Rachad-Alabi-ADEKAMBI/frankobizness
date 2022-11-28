@@ -2,8 +2,8 @@
 
 <?php ob_start(); ?>
 
-          <div class="car" v-if='showCar' v-for='line in lines' :key='line.id'>
-                    <div class="close" @click='displayHome()' >
+          <div class="car">
+                    <div class="close" >
                         Retour
                     </div>
                     <hr>

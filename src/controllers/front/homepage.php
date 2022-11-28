@@ -1,8 +1,9 @@
 <?php
-require_once('./src/model/front/cars.php');
+require_once('./src/model/front/home.php');
 
 function homepage(){
-    $posts = getCars();
+    $posts = getLastCars();
+    $datas = getLastOnSale();
 
     require('./src/templates/homepage.php');
 }

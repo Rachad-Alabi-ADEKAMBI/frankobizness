@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -15,9 +11,11 @@ session_start();
 
 
    <body>
-   <?php include 'header.php'; ?>
+   <?php include 'header.php'; ?> <br>
 
-      <?= $content ?>
+   <div class="app" id='app'>
+   <?= $content ?>
+   </div>
 
       <?php include 'footer.php'; ?>
    </body>

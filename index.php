@@ -1,10 +1,12 @@
 <?php
+session_start();
 
 require_once('src/controllers/front/homepage.php');
 require_once('src/controllers/front/car.php');
 require_once('src/controllers/back/addCategory.php');
 require_once('src/controllers/front/loginPage.php');
 require_once('src/controllers/back/dashboard.php');
+require_once('src/controllers/front/cars.php');
 
 
 if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -40,6 +42,16 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
 
 	elseif ($_GET['action'] === 'dashboard') {
 		dashboard();
+	}
+
+
+	elseif ($_GET['action'] === 'cars') {
+		cars();
+	}
+
+
+	elseif ($_GET['action'] === 'home') {
+		homepage();
 	}
 
 

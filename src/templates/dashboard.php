@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
  $title = 'Franko -Tableau de bord'; ?>
 
 <?php ob_start();
@@ -11,12 +9,10 @@ session_start();
 <br><br><br>
 
     <main class="main">
-        <button onclick='doo()'>
-    do</button>
 
             <div class="center">
                     <p>
-                        Bonjour mr <span><?= $_SESSION['user']['username']?></span>, content de vous revoir
+                        Bonjour mr <strong><?= $_SESSION['user']['username']?></strong>, content de vous revoir
                     </p>
 
 
@@ -135,7 +131,7 @@ session_start();
         </form>
         <br>
 
-        <form action="api/api.php?action=newCar" v-if='showAdd'
+        <form action="./api/api.php?action=newCar" v-if='showAdd'
         enctype="multipart/form-data"  method='POST'>
 
             <div class="close" @click='closeAdd()'>

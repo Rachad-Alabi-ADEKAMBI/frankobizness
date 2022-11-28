@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/b14771b76e.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="public/img/logo.ico">
 
-    <script src='https://unpkg.com/vue@3'></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>

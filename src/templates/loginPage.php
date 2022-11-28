@@ -4,6 +4,7 @@
 
 <?php ob_start(); ?>
 
+<div class="main">
 <div class="login">
     <form action="././api/api.php?action=login" method='POST'>
         <h2>
@@ -23,6 +24,7 @@
             Connexion
         </button>
     </form>
+</div>
 </div>
 
 

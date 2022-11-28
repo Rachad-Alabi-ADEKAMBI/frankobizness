@@ -185,14 +185,14 @@ section .items {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   margin: auto;
   height: auto;
 }
 section .items .item {
   height: auto;
   margin: 10px;
-  width: 350px;
+  width: 300px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);

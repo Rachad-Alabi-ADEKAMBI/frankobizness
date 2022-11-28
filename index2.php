@@ -18,9 +18,6 @@
 
         <?php include 'car.php'; ?>
 
-
-
-
                 <div class="" v-if='showHome'>
 
             <section>
@@ -70,66 +67,6 @@
                 </div>
             </section>
 
-
-            <section class='grey' v-if='showHome'>
-                <h2>
-                    Frankobusiness <br>
-                    <span>Votre satisfaction importe</span>
-                </h2>
-
-                <div class="cards">
-                        <div class="card">
-                        <i class="fas fa-money-bill"></i>
-
-                            <p>
-                                Prix accessibles
-                            </p>
-
-                            <p class='text'>
-                            Nous vous proposons des prix super abordables
-                            </p>
-                        </div>
-
-                        <div class="card">
-                        <i class="fas fa-lock"></i>
-                            <p>
-                                Garantie de votre achat
-                            </p>
-
-                            <p class='text'>
-                                Achetez le coeur tranquuille
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <i class="fas fa-user"></i>
-                            <p>
-                                Demande personnalisée
-                            </p>
-
-                        <p class="text">
-                            Cherhez vous un modele précis ?
-                            Contactez-nous
-                        </p>
-                        </div>
-                </div>
-            </section>
-
-
-
-
-            <div class="black" v-if='showHome'>
-                <div class="black__content">
-                    <p>Trouvez votre vehicule
-                         aujourdh'hui </p>
-                    <button>
-                        <a href="#contact">
-                        Contactez-nous
-                        </a>
-                    </button>
-                </div>
-            </div>
-
             <section>
                 <h2>
                     A louer
@@ -176,42 +113,36 @@
                     </div>
             </section>
 
-
-
-
             <?php include 'slider.php'; ?>
 
-
-
             <form action="" id='contact' class="contact">
-            <h2>
-                Contact
-            </h2>
+                <h2>
+                    Contact
+                </h2>
 
-            <label for="">
-                Nom complet: <br>
-                <input type="text">
-            </label> <br>
+                <label for="">
+                    Nom complet: <br>
+                    <input type="text">
+                </label> <br>
 
-            <label for="">Email: <br>
-                <input type="email">
-            </label> <br>
+                <label for="">Email: <br>
+                    <input type="email">
+                </label> <br>
 
-            <label for="">
-                Contact: <br>
-                <input type="number">
-            </label> <br>
+                <label for="">
+                    Contact: <br>
+                    <input type="number">
+                </label> <br>
 
-            <label for="">
-                Message: <br>
-                <input type="text" class="message">
-            </label> <br>
+                <label for="">
+                    Message: <br>
+                    <input type="text" class="message">
+                </label> <br>
 
-            <button>
-                Envoyer
-            </button>
+                <button>
+                    Envoyer
+                </button>
             </form>
-
 
         <?php include 'footer.php'; ?>
 

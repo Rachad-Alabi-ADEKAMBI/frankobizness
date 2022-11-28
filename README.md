@@ -1,1 +1,2 @@
 # frankobizness
+this is a full web app for car salling business. i have made it with vuejs and php MVC. just make few changes in the files and you can start using it. i am still working on the project, fell free to let me know what you think about it and if you are a developper you can contribute, it is an 'open source project'.

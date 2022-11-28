@@ -188,7 +188,7 @@ function newCar(){
             }
 
             if (empty ($_POST['color'])) {
-                $errors['color'] = 'Veuillez définir la mesure';
+                $errors['color'] = 'Veuillez définir la couleur';
             }
 
 
@@ -286,7 +286,7 @@ function newCar(){
                ?>
                     <script>
                         alert('Nouveau vehicule ajouté avec succes');
-                        window.location.replace('../dashboard.php');
+                        window.location.replace('./index.php?action=dashboard');
                     </script>
                <?php
     }
