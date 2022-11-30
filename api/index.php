@@ -6,76 +6,79 @@ include 'api.php';
 //www.monsite.fr/api/formations/:categorie (PHP. JS)
 //www.monsite.fr/formation/:id (6, 7)
 
-try{
-    if(!empty($_GET['demande'])){
-        $url = explode ("/", filter_var($_GET['demande'], FILTER_SANITIZE_URL));
-        switch($url[0]){
-
-            case "searchCar":
+try {
+    if (!empty($_GET['demande'])) {
+        $url = explode('/', filter_var($_GET['demande'], FILTER_SANITIZE_URL));
+        switch ($url[0]) {
+            case 'searchCar':
                 searchCar();
-            break;
+                break;
 
-            case "mostRated":
+            case 'footerCars':
+                getFooterCars();
+                break;
+
+            case 'mostRated':
                 getMostRated();
-            break;
+                break;
 
-            case "cars":
+            case 'cars':
                 getCars();
-            break;
+                break;
 
-            case "search":
+            case 'search':
                 search();
-            break;
+                break;
 
-            case "carsToSell":
+            case 'carsToSell':
                 getCarsToSell();
-            break;
+                break;
 
-            case "carsToRent":
+            case 'carsToRent':
                 getCarsToRent();
-            break;
+                break;
 
-            case "allCars":
+            case 'allCars':
                 getAllCars();
-            break;
+                break;
 
-            case "lastAdded":
-            getLastAdded();
-            break;
+            case 'lastAdded':
+                getLastAdded();
+                break;
 
-            case "lastSaleAdded":
+            case 'lastSaleAdded':
                 getLastSaleAdded();
                 break;
 
-                case "lastRentAdded":
-                    getLastRentAdded();
-                    break;
+            case 'lastRentAdded':
+                getLastRentAdded();
+                break;
 
-                    case "lastSold":
-                        getLastSold();
-                        break;
+            case 'lastSold':
+                getLastSold();
+                break;
 
+            case 'car':
+                if (!empty($url[1])) {
+                    getCar($url[1]);
+                } else {
+                    throw new Exception(
+                        "Vous n'avez pas renseigné l'id de la demande"
+                    );
+                }
 
-                    case "car":
-                        if (!empty($url[1])){
-                            getCar($url[1]);
-                        } else{
-                            throw new Exception ("Vous n'avez pas renseigné l'id de la demande");
-                        }
+                break;
 
-                        break;
-
-
-
-            default: throw new Exception ("La demande n'est pas valide");
+            default:
+                throw new Exception("La demande n'est pas valide");
         }
-    } else{
-        throw new Exception ("Problème de récupération de données. ");
+    } else {
+        throw new Exception('Problème de récupération de données. ');
     }
-} catch(Exception $e){
+} catch (Exception $e) {
     $erreur = [
-        "message" => $e->getMessage(),
-        "code" => $e->getCode()
+        'message' => $e->getMessage(),
+        'code' => $e->getCode(),
     ];
 
     print_r($erreur);

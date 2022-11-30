@@ -11,20 +11,24 @@ createApp({
         showAdd: false,
         displayDelete: false,
         displayEdit: false,
-        showAllCars: false,
+        showAllCars: true,
         showToRent: false,
-        showToSell: false
+        showToSell: false,
+        footerCars: []
 
     }
 },
 mounted: function() {
    this.getCars();
-   this.getAllCars(); //for available cars
+   this.getAllCars();
 },
 methods: {
     getCars() {
        axios.get('http://127.0.0.1/frankobizness/api/cars').then(response =>
             this.cars = response.data);
+            axios.get('http://127.0.0.1/frankobizness/api/footerCars').then(response =>
+            this.footerCars = response.data);
+
 
         this.showBtn = true;
         this.showCars = true;
@@ -40,14 +44,14 @@ methods: {
         this.showAdd = false;
     },
     getAllCars() {
-        axios.get('https:/127.0.0.1/frankobizness/api/allCars').then(response =>
+        axios.get('http://127.0.0.1/frankobizness/api/allCars').then(response =>
             this.details = response.data)
             this.showAllCars = true;
             this.showToRent = false;
             this.showToSell =false
     },
     getToSell(){
-        axios.get('https:/127.0.0.1/frankobizness/api/carsToSell').then(response =>
+        axios.get('http://127.0.0.1/frankobizness/api/carsToSell').then(response =>
             this.details = response.data);
             this.showHome = false;
             this.showCar = false;
@@ -56,7 +60,7 @@ methods: {
             this.showToSell = true;
     },
     getToRent(){
-        axios.get('https:/127.0.0.1/frankobizness/api/carsToRent').then(response =>
+        axios.get('http://127.0.0.1/frankobizness/api/carsToRent').then(response =>
             this.details = response.data);
             this.showHome = false;
             this.showCar = false;

@@ -724,6 +724,25 @@ form button {
   height: 35px;
   color: white;
 }
+.footer__top .box .cars .car {
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+}
+.footer__top .box .cars .car img {
+  width: 70px;
+  height: 40px;
+}
+.footer__top .box .cars .car h5 {
+  color: #bc111d;
+  font-weight: bold;
+}
+.footer__top .box .cars .car h5 span {
+  color: white;
+  font-weight: bold;
+}
+.footer__top .box .cars .car:hover {
+  transform: scale(1.1);
+}
 .footer hr {
   margin: 40px auto;
 }

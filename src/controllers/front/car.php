@@ -1,16 +1,11 @@
 <?php
 
-require_once('./src/model/front/car.php');
+require_once './src/model/front/car.php';
 
-function car($id){
+function car($id)
+{
     $data = getCar($id);
-    //$comments = getComments($identifier);
+    $info = getSeller($id);
 
-    require_once('./src/templates/car.php');
+    require_once './src/templates/car.php';
 }
-
-
-
-
-
-

@@ -837,6 +837,33 @@ form{
                     }
                 }
             }
+
+            .cars{
+                .car{
+                    cursor: pointer;
+                    transition: 500ms ease-in-out;
+
+
+                    img{
+                        width: 70px;
+                        height: 40px;
+                    }
+
+                    h5{
+                        color: $red;
+                        font-weight: bold;
+
+                        span{
+                            color: $white;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .car:hover{
+                    transform: scale(1.1);
+                }
+            }
         }
     }
 
