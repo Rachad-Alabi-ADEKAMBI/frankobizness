@@ -2,6 +2,7 @@ html, body {
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 0;
+  margin: 0;
 }
 
 h2 {
@@ -164,10 +165,6 @@ button:hover {
 }
 
 section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
   margin: 15px auto;
 }
 section .close:hover {
@@ -180,16 +177,7 @@ section h2 span {
   font-size: 0.7em;
   font-weight: normal;
 }
-section .items {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
-  height: auto;
-}
-section .items .item {
+section .container .row .item {
   height: auto;
   margin: 10px;
   width: 300px;
@@ -197,17 +185,17 @@ section .items .item {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1607843137);
 }
-section .items .item__top {
+section .container .row .item__top {
   height: 230px;
   width: 100%;
   position: relative;
 }
-section .items .item__top img {
+section .container .row .item__top img {
   width: 100%;
   height: 100%;
   position: absolute;
 }
-section .items .item__top .info {
+section .container .row .item__top .info {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -220,32 +208,32 @@ section .items .item__top .info {
   width: 100px;
   text-align: center;
 }
-section .items .item__top .bar {
+section .container .row .item__top .bar {
   margin: auto 0 0 0;
   height: 90px;
   width: 100%;
   text-align: left;
 }
-section .items .item__top .bar p {
+section .container .row .item__top .bar p {
   color: white;
 }
-section .items .item__bottom {
+section .container .row .item__bottom {
   display: block;
   height: 250px;
   text-align: center;
   width: 100%;
 }
-section .items .item__bottom h3 {
+section .container .row .item__bottom h3 {
   color: black;
   font-size: 1.3em;
   margin: 10px auto;
 }
-section .items .item__bottom .description {
+section .container .row .item__bottom .description {
   margin: 15px auto;
   color: black;
   width: 90%;
 }
-section .items .item__bottom .list {
+section .container .row .item__bottom .list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -254,30 +242,35 @@ section .items .item__bottom .list {
   margin: auto;
   width: 95%;
 }
-section .items .item__bottom .list__item {
+section .container .row .item__bottom .list__item {
   margin: 5px;
 }
-section .items .item__bottom .list__item span {
+section .container .row .item__bottom .list__item span {
   font-weight: bold;
 }
-section .items .item__bottom .price {
+section .container .row .item__bottom .price {
   font-size: 1.2em;
   font-weight: 700;
   color: #bc111d;
 }
-section .items .item__bottom .btn {
-  width: 100%;
-  height: 40px;
-  display: table;
-  margin: 10px auto;
-}
-section .items .item__bottom .btn button {
+section .container .row .item__bottom button {
   display: table-cell;
   vertical-align: middle;
   background-color: #bc111d;
+  border: 1px solid #bc111d;
 }
-section .items .item__bottom .btn button:hover {
+section .container .row .item__bottom button a {
+  color: white;
+}
+section .container .row .item__bottom button:hover {
   background-color: black;
+  border: 1px solid black;
+}
+section .container .row .item__bottom button:hover a {
+  color: white;
+}
+section .container .row .card {
+  border: none;
 }
 section .cards {
   width: 80%;
@@ -304,22 +297,6 @@ section .cards .card .text {
   color: rgb(32, 29, 29);
   font-weight: normal;
   font-size: 1em;
-}
-
-.grey {
-  background-color: #F8F8F8;
-  height: 400px;
-  margin: 60px auto;
-  padding-top: 20px;
-}
-.grey .cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.grey .cards .card {
-  flex: 1;
 }
 
 .black {
@@ -826,9 +803,6 @@ form button {
   }
   .car__infos .right {
     width: 50%;
-  }
-  .grey .cards {
-    flex-direction: column;
   }
   .footer__top {
     display: flex;

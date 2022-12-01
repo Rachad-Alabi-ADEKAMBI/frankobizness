@@ -1,11 +1,11 @@
 <?php
 // src/controllers/add_comment.php
 
-require_once('./src/model/back/dashboard.php');
+require_once './src/model/back/dashboard.php';
 
 function dashboard()
 {
-/*	$name = null;
+    /*	$name = null;
 	if (!empty($input['name'])) {
     	$name = $input['name'];
 	} else {
@@ -21,5 +21,5 @@ function dashboard()
 	}
 	*/
 
-	require_once('./src/templates/dashboard.php');
+    require_once './src/templates/back/dashboard.php';
 }

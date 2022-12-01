@@ -1,69 +1,89 @@
 <?php
+require_once './src/model/model.php';
 
-function getConnexion(){
-    return new PDO("mysql:host=localhost; dbname=frankobizness; charset=UTF8", "root", "");
-}
-
-function getLastCars(){
-
+function getLastCars()
+{
     $pdo = getConnexion();
 
-      $req = $pdo->query(
-        "SELECT *  FROM cars ORDER BY id DESC LIMIT 3"
-    );
+    $req = $pdo->query('SELECT *  FROM cars
+    WHERE status = "Disponible" ORDER BY id DESC LIMIT 3');
 
     $posts = [];
-    while (($row = $req->fetch())) {
+    while ($row = $req->fetch()) {
         $data = [
             'id' => $row['id'],
-            'name' =>$row['name'],
-            'category' =>$row['category'],
-            'description' =>$row['description'],
-            'year' =>$row['year'],
-            'rate' =>$row['rate'],
-            'color' =>$row['color'],
-            'price' =>$row['price'],
+            'name' => $row['name'],
+            'category' => $row['category'],
+            'description' => $row['description'],
+            'year' => $row['year'],
+            'rate' => $row['rate'],
+            'color' => $row['color'],
+            'price' => $row['price'],
             'pic1' => $row['pic1'],
             'pic2' => $row['pic2'],
             'pic3' => $row['pic3'],
-            'pic4' => $row['pic4']
+            'pic4' => $row['pic4'],
         ];
 
         $posts[] = $data;
-
     }
-        return $posts;
+    return $posts;
+}
+
+function getLastOnSale()
+{
+    $pdo = getConnexion();
+
+    $req = $pdo->query('SELECT *  FROM cars
+    WHERE category = "A vendre" ORDER BY id DESC LIMIT 3');
+
+    $datas = [];
+    while ($row = $req->fetch()) {
+        $data = [
+            'id' => $row['id'],
+            'name' => $row['name'],
+            'category' => $row['category'],
+            'description' => $row['description'],
+            'year' => $row['year'],
+            'rate' => $row['rate'],
+            'color' => $row['color'],
+            'price' => $row['price'],
+            'pic1' => $row['pic1'],
+            'pic2' => $row['pic2'],
+            'pic3' => $row['pic3'],
+            'pic4' => $row['pic4'],
+        ];
+
+        $datas[] = $data;
     }
+    return $datas;
+}
 
+function getLastOnRent()
+{
+    $pdo = getConnexion();
 
-    function getLastOnSale(){
+    $req = $pdo->query('SELECT *  FROM cars
+    WHERE category = "A louer" AND status ="Disponible" ORDER BY id DESC LIMIT 3');
 
-        $pdo = getConnexion();
+    $items = [];
+    while ($row = $req->fetch()) {
+        $data = [
+            'id' => $row['id'],
+            'name' => $row['name'],
+            'category' => $row['category'],
+            'description' => $row['description'],
+            'year' => $row['year'],
+            'rate' => $row['rate'],
+            'color' => $row['color'],
+            'price' => $row['price'],
+            'pic1' => $row['pic1'],
+            'pic2' => $row['pic2'],
+            'pic3' => $row['pic3'],
+            'pic4' => $row['pic4'],
+        ];
 
-          $req = $pdo->query(
-            "SELECT *  FROM cars WHERE
-            category = 'En vente' ORDER BY id DESC LIMIT 3"
-        );
-
-        $datas = [];
-        while (($row = $req->fetch())) {
-            $data = [
-                'id' => $row['id'],
-                'name' =>$row['name'],
-                'category' =>$row['category'],
-                'description' =>$row['description'],
-                'year' =>$row['year'],
-                'rate' =>$row['rate'],
-                'color' =>$row['color'],
-                'price' =>$row['price'],
-                'pic1' => $row['pic1'],
-                'pic2' => $row['pic2'],
-                'pic3' => $row['pic3'],
-                'pic4' => $row['pic4']
-            ];
-
-            $datas[] = $data;
-
-        }
-            return $datas;
-        }
+        $items[] = $data;
+    }
+    return $items;
+}

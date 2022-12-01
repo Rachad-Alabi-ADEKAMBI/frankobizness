@@ -2,6 +2,7 @@ html, body{
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
+    margin: 0;
 
 }
 
@@ -190,7 +191,7 @@ button:hover{
 
 
 section{
-    @include flex(column);
+ //   @include flex(column);
     margin: 15px auto;
 
     .close:hover{
@@ -206,114 +207,121 @@ section{
         }
     }
 
-    .items{
-        @include flex();
-        width: 100%;
-        margin: auto;
-        height: auto;
+    .container{
+        .row{
+            .item{
+                height: auto;
+                margin: 10px;
+                width: 300px;
+                background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                box-shadow: 0px 10px 12px #00000029;
 
-        .item{
-            height: auto;
-            margin: 10px;
-            width: 300px;
-            background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            box-shadow: 0px 10px 12px #00000029;
-
-            &__top{
-                height: 230px;
-                width: 100%;
-                position: relative;
-                img{
+                &__top{
+                    height: 230px;
                     width: 100%;
-                    height: 100%;
-                    position: absolute;
-                }
-
-                .info{
-                    position: absolute;
-                    top: 15px;
-                    left: 15px;
-                    height: 25px;
-                    width: auto;
-                    background-color: $red;
-                    color: $white;
-                    padding-top: 5px;
-                    font-weight: bold;
-                    width: 100px;
-                    text-align: center;
-                }
-
-                .bar{
-                    margin: auto 0 0 0;
-                    height: 90px;
-                    width: 100%;
-                    text-align: left;
-
-                    p{
-                        color: $white;
+                    position: relative;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
                     }
+
+                    .info{
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        height: 25px;
+                        width: auto;
+                        background-color: $red;
+                        color: $white;
+                        padding-top: 5px;
+                        font-weight: bold;
+                        width: 100px;
+                        text-align: center;
+                    }
+
+                    .bar{
+                        margin: auto 0 0 0;
+                        height: 90px;
+                        width: 100%;
+                        text-align: left;
+
+                        p{
+                            color: $white;
+                        }
+                    }
+                }
+
+                &__bottom{
+                    display: block;
+                    height: 250px;
+                    text-align: center;
+                    width: 100%;
+
+                    h3{
+                        color: $black;
+                        font-size: 1.3em;
+                        margin: 10px auto;
+                    }
+
+                    .description{
+                        margin: 15px auto;
+                        color: black;
+                        width: 90%;
+                    }
+
+                   .list{
+                    @include flex();
+                    flex-wrap: nowrap;
+                    margin: auto;
+                    width: 95%;
+
+                    &__item{
+                        margin: 5px;
+
+                        span{
+                            font-weight: bold;
+                        }
+                    }
+                   }
+
+                    .price{
+                        font-size: 1.2em;
+                        font-weight: 700;
+                        color: $red;
+                    }
+
+
+                        button{
+                            display: table-cell;
+                            vertical-align: middle;
+                            background-color: $red;
+                            border: 1px solid $red;
+
+                            a{
+                                color: $white
+                            }
+                        }
+
+                        button:hover{
+                            background-color: $black;
+                            border: 1px solid $black;
+
+                            a{
+                                color: $white;
+                            }
+                        }
                 }
             }
 
-            &__bottom{
-                display: block;
-                height: 250px;
-                text-align: center;
-                width: 100%;
-
-                h3{
-                    color: $black;
-                    font-size: 1.3em;
-                    margin: 10px auto;
-                }
-
-                .description{
-                    margin: 15px auto;
-                    color: black;
-                    width: 90%;
-                }
-
-               .list{
-                @include flex();
-                flex-wrap: nowrap;
-                margin: auto;
-                width: 95%;
-
-                &__item{
-                    margin: 5px;
-
-                    span{
-                        font-weight: bold;
-                    }
-                }
-               }
-
-                .price{
-                    font-size: 1.2em;
-                    font-weight: 700;
-                    color: $red;
-                }
-
-                .btn{
-                    width: 100%;
-                    height: 40px;
-                    display: table;
-                    margin: 10px auto;
-
-                    button{
-                        display: table-cell;
-                        vertical-align: middle;
-                        background-color: $red;
-                    }
-
-                    button:hover{
-                        background-color: $black    ;
-                    }
-                }
+            .card{
+                border: none;
             }
         }
     }
+
+
 
     .cards{
         width: 80%;
@@ -347,20 +355,7 @@ section{
 
 }
 
-.grey{
-    background-color: $grey;
-    height: 400px;
-    margin: 60px auto;
-    padding-top: 20px;
 
-    .cards{
-        @include flex();
-
-        .card{
-            flex: 1;
-        }
-    }
-}
 
 .black{
     height: 200px;
@@ -991,11 +986,7 @@ form{
 
     }
 
-    .grey{
-        .cards{
-            flex-direction: column;
-        }
-    }
+
 
     .footer{
         &__top{

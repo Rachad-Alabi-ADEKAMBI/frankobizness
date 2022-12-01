@@ -15,8 +15,6 @@
 
     <div class="app" id='app'>
         <?= $content ?>
-
-
         <?php include 'footer.php'; ?>
 
     </div>
