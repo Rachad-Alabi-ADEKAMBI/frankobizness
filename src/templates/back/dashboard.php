@@ -1,7 +1,6 @@
 <?php
-session_start();
-$title = 'Franko -Tableau de bord';
-?>
+
+$title = 'Franko -Tableau de bord'; ?>
 
 <?php ob_start();
 //include 'checkSession.php';
@@ -49,11 +48,11 @@ $title = 'Franko -Tableau de bord';
                 </td>
 
                 <td>
-                    <button class="purple">
+                    <button class="purple" @click='displayEdit(car.id)'>
                         Editer
                     </button>
 
-                    <button class="red">
+                    <button class="red" @click='displayDelete(car.id)'>
                         Supprimer
                     </button>
                 </td>
@@ -62,8 +61,8 @@ $title = 'Franko -Tableau de bord';
         </tbody>
     </table>
 
-    <form action="" v-if='displayEdit'>
-        <div class="close">
+    <form action="" v-if='showEdit'>
+        <div class="close" @click='getCars()'>
             Fermer
         </div>
         <h2>
@@ -109,34 +108,36 @@ $title = 'Franko -Tableau de bord';
     </form>
 
 
-    <form action="" v-if='displayDelete'>
-        <div class="close">
+    <form action="" v-if='showDelete'>
+        <div class="close" @click='getCars()'>
             Fermer
         </div>
 
-        <h2>
-            Suppression
-        </h2>
+        <div class="" v-for='detail in details' :key='detail.id'>
+            <h2>
+                Suppression
+            </h2>
 
-        <p>
-            Confirmez vous la suppression de
-        </p>
+            <p>
+                Confirmez vous la suppression de
+                {{ detail.name }}
+            </p>
 
-        <div class="choices">
-            <button class='green'>
-                Oui
-            </button>
+            <div class="choices">
+                <button class='green' @click='deleteCar(detail.id)'>
+                    Oui
+                </button>
 
-            <button class='red'>
-                Non
-            </button>
+                <button class='red' @click='getCars()'>
+                    Non
+                </button>
+            </div>
         </div>
     </form>
-    <br>
 
     <form action="./api/api.php?action=newCar" v-if='showAdd' enctype="multipart/form-data" method='POST'>
 
-        <div class="close" @click='closeAdd()'>
+        <div class="close" @click='getCars()'>
             Fermer
         </div>
 

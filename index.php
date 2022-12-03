@@ -5,8 +5,11 @@ require_once 'src/controllers/front/homepage.php';
 require_once 'src/controllers/front/car.php';
 require_once 'src/controllers/back/addCategory.php';
 require_once 'src/controllers/front/loginPage.php';
-require_once 'src/controllers/back/dashboard.php';
 require_once 'src/controllers/front/cars.php';
+require_once 'src/controllers/front/register.php';
+require_once 'src/controllers/front/forgotPassword.php';
+
+require_once 'src/controllers/back/dashboard.php';
 
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     if ($_GET['action'] === 'car') {
@@ -32,10 +35,14 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         addCategory();
     } elseif ($_GET['action'] === 'login') {
         login();
+    } elseif ($_GET['action'] === 'register') {
+        register();
     } elseif ($_GET['action'] === 'dashboard') {
         dashboard();
     } elseif ($_GET['action'] === 'cars') {
         cars();
+    } elseif ($_GET['action'] === 'forgotPassword') {
+        forgotPassword();
     } elseif ($_GET['action'] === 'home') {
         homepage();
     } else {

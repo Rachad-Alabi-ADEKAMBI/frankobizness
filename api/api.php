@@ -382,7 +382,7 @@ function login()
 
 <script>
 alert('Veuillez verifier vos identifiants');
-window.location.replace('../index.php?action=loginPage')
+window.location.replace('../index.php?action=login')
 </script>
 <?php
             }
@@ -394,6 +394,96 @@ window.location.replace('../index.php?action=loginPage')
                 ];
                 header('Location: ../index.php?action=dashboard');
             }
+        }
+    }
+}
+
+function register()
+{
+    $pdo = getConnexion();
+    if (!empty($_POST)) {
+        $errors = [];
+
+        if (empty($_POST['first_name'])) {
+            $errors['first_name'] = 'Prénom non valide';
+        }
+
+        if (empty($_POST['last_name'])) {
+            $errors['last_name'] = 'Nom non valide';
+        }
+
+        if (
+            empty($_POST['email']) ||
+            !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
+        ) {
+            $errors['email'] = 'Email non valide';
+        } else {
+            $req = $pdo->prepare('SELECT id FROM users WHERE email = ?');
+            $req->execute([$_POST['email']]);
+            $email = $req->fetch();
+            if ($email) {
+                $errors['email'] = 'Ce email est déjà utilisé';
+            }
+        }
+
+        if (
+            empty($_POST['phone_code']) ||
+            !preg_match('/^[0-9]+$/', $_POST['phone_code'])
+        ) {
+            $errors['phone_code'] = 'Code téléphone non valide';
+        }
+
+        if (
+            empty($_POST['phone_number']) ||
+            !preg_match('/^[0-9]+$/', $_POST['phone_code'])
+        ) {
+            $errors['phone_number'] = 'Numero de téléphone non valide';
+        }
+
+        if (!empty($errors)) {
+            include '../errors.php';
+        }
+
+        if (empty($errors)) {
+
+            $email = verifyInput($_POST['email']);
+            $first_name = verifyInput($_POST['first_name']);
+            $last_name = verifyInput($_POST['last_name']);
+            $phone_code = verifyInput($_POST['phone_code']);
+            $phone_number = verifyInput($_POST['phone_number']);
+            // $token = str_random(60);
+
+            $sql = $pdo->prepare("INSERT INTO users SET date_of_insertion = NOW(),
+                        email = ?, role = 'user', status='Active',
+                        first_name = ?, last_name = ?, phone_code = ?,
+                        phone_number = ?, username = 'use', pass='oklm'");
+
+            $sql->execute([
+                $email,
+                $first_name,
+                $last_name,
+                $phone_code,
+                $phone_number,
+            ]);
+
+            $user_id = $pdo->lastInsertId();
+
+            $card = time() . '_' . $_FILES['pic']['name'];
+
+            $target = './public/img/' . $card;
+
+            if (move_uploaded_file($_FILES['pic']['tmp_name'], $target)) {
+                $req = $pdo->prepare("UPDATE users SET
+                          pic = ? WHERE id = ? ");
+
+                $req->execute([$pic, $user_id]);
+            }
+            ?>
+<script>
+alert("Inscription réussie !! Vous serez rédirigé vers votre tableau de bord");
+window.location.replace("../index.php?action=dashboard");
+</script>
+<?php
         }
     }
 }
@@ -469,6 +559,10 @@ alert('Veuillez faire des selections');
 
 if ($action == 'login') {
     login();
+}
+
+if ($action == 'register') {
+    register();
 }
 
 if ($action == 'newCar') {
